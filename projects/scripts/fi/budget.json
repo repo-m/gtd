@@ -1,0 +1,30 @@
+{
+  "income": {
+    "vwag": 5000.00,
+    "hani": 300.00,
+    "subs": 510.00,
+    "ires": 0.00
+  },
+  "spendings_fixed": {
+    "home": -1864.43,
+    "comm": -66.49,
+    "abon": -83.87,
+    "kids": -120.00,
+    "donn": -78.58
+  },
+  "spendings_variable": {
+    "nour": -700.00,
+    "medi": -20.00,
+    "mobi": -50.00,
+    "fash": -200.00,
+    "life": -200.00,
+    "bist": -200.00,
+    "azpp": -100.00,
+    "sres": -300.00
+  },
+  "savings": -1800.00,
+  "targets": {
+    "psald": 1026.63,
+    "psafe": 10.00
+  }
+}

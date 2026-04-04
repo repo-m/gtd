@@ -1,0 +1,22 @@
+app:
+  name: MyApp
+  version: 1.0
+  debug: true
+
+database:
+  host: localhost
+  port: 5432
+  user: admin
+  password: secret
+
+users:
+  - name: Ali
+    role: admin
+  - name: Sara
+    role: editor
+  - name: Jonas
+    role: viewer
+
+logging:
+  level: INFO
+  file: app.log

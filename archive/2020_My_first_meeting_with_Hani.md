@@ -1,0 +1,19 @@
+# My first meeting with Hani
+
+It was 18 October 2013. My parents, my sister and I were in a car, a small black polo 9N, and drove to Nordstemmen. A small village in Hildesheim. Although it was only 50km the road seemed long. We were invited to the family of Hani.
+
+When we arrived at their house it was almost evening and I saw a tall thin guy in front of the house, who was repairing an old small car. I assumed that this was the brother of Hani. He looked not very friendly but said hello to us and we went to the front door and rang the doorbell. A tall elder man opened the door I knew that was her father. He welcomed us and invited us in. I was excited on the way but after meeting her brother and father I almost became more excited.
+
+We went in and I saw this big house from the inside. We went to the living room, which was really big. My father sat and I sat just beside him. Her father took a seat on our right. It was a big sofa. On the other end of the room there was an Dining table. My father began the small talk with her father. It was very strange because her father didn't speak much, so it was up to my father to fill the silince and strange atmosphere.
+
+After about 30 min my mother, my sister, her mother and her sister entered the room and took a seat at the dining table. Her mother were laughing and smiled to me. The women were talking to each other and they brought some positive flair in the room, were the atmosphere were still very weird. So everybody was there but she wasn't. Afterwards my sister told me that she didn't want to come and that they had to convince her.
+
+Later her sister disappeared and after 10 or 20 minutes she came back. Behind her she entered the room. Hanife. I couldn't look at her directly, because her father sat there and I didn't want him to see me looking at his daughter. But the only reason why we were there was to meet her. So I tried to took a quick look to her. There she was. She had this white shirt, a beige skirt which was red patterned and a beige headscarf. Her face? Her face was wonderful. I saw her before on photos but live she looked even better and had this clear shy face. I fell in love with her right next to her father. She had a beautiful body. I could see her body shape because her shirt was tight like the first part of her skirt. She didn't looked in our direction. So we didn't have eye contact.
+
+After an hour my mother called me to come. It was very uncomfortable because everybody especially her father and his brother, who came a while ago from outside, knew that I was going to see her. But I stood up and went out of the room. My mother told me to go enter a small room next to the living room. As I entered my sister, her sister and she sat in the room. So I took a seat next to my sister and sat across to her. I was very excited. There was silence in the room.
+
+I broke the silince and began to speak. I began to introduce me and talked a while. At the beginning she just looked at the floor and while I was speaking she got more and more comfortable and took a look at me. She was still very shy but we had our first eye contact and I felt in love again and again and again.
+
+After I finished introducing me I asked her if she could introduce herself. She started but didn't speak much. Her sister completed the sentences she began and whispered to her to speak more. But she was very shy. I liked it. I liked her shy nature. It didn't matter much what she or her sister said about her. It was just her sitting there and I knew that she was the girl of my life. I wished I could stay much longer in the room with her. But I knew that it would be disrespectful to her father. So I had to leave the room and went to the living room again. But in my mind I was still in this small room with her.
+
+#archive 

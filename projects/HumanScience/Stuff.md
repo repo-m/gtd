@@ -1,0 +1,80 @@
+# Backlog / Notes
+
+- Narrative Ethics
+  - Erzählungen als Equipment for living #Burke
+  - Mensch als homo narrens
+  - individuelle Identität - Wer bin ich?
+  - kollektive Identität - Wer sind wir?
+  - Erzählung und Sprache
+  - Ideen des guten Lebens
+  - Moral: wissen, Gründe, know why
+  - Ethik: bestehen, Phantasien, know how
+- Das Ziel des psychoanalytischen Prozesses besteht letztendlich nicht nur darin, verdrängte Wünsche ans Licht zu bringen. Es geht darum, sich selbst wieder auf eine neue Art und Weise wählen zu können. Man kommt an diesen Punkt der „subjektiven Destitution“, an dem man seine grundlegende Identität neu erfindet. Das ist eine erschreckende Erfahrung, und deshalb haben sowohl Freud als auch Lacan und andere betont, dass die Psychoanalyse kein Spaß ist. Am Ende einer erfolgreichen Psychoanalyse steht immer der höchstgefährliche Moment der Depression, weil man seiner Identität beraubt ist. Das ist der Moment, in dem man sich selbst wieder wählen muss. #Zizek
+- Formel dafür lautet auf Französisch: „Je sais bien mais quand même“ („Ich weiß das ganz genau, aber nichtsdestotrotz“) #Zizek
+- Those who have handled sciences have been either men of experiment or men of dogmas. The men of experiment are like the ant, they only collect and use; the reasoners resemble spiders, who make cobwebs out of their own substance. But the bee takes a middle course: it gathers its material from the flowers of the garden and of the field, but transforms and digests it by a power of its own. Not unlike this is the true business of philosophy; for it neither relies solely or chiefly on the powers of the mind, nor does it take the matter which it gathers from natural history and mechanical experiments and lay it up in the memory whole, as it finds it, but lays it up in the understanding altered and digested. Therefore from a closer and purer league between these two faculties, the experimental and the rational (such as has never yet been made), much may be hoped. #Bacon
+- best way to spend Steuer is Forschung. Pulver Drucker ... Best thing for own citizens #Bacon
+- At the end of the day most animals dies a horrible death
+  - example: Australien bulldog-ant => described by #Schopenhauer
+- Ideology
+  - What we can do is only to understand our ideology and let history show us, if it was good or bad.
+  - Communism: Proleteriat -> Exploited by the Bourgeoisie
+  - Facism: German Working Class -> Exploited by Jews
+  - AFD: German Globalisation loosers -> Exploited by Migrant?
+- Country Rationalist: #Descartes #Spinoza #Leibniz
+- British Empirists: John #Locke George #Berkeley David #Hume
+- Book review: INTERESTING PURITAN FACTS AdAstra
+  - The Puritans tried to import African slaves, but they all died of the cold.
+  - The average family size in Waltham, Massachusetts in the 1730s was 9.7 children.
+  - Everyone was compelled by law to live in families. Town officials would search the town for single people and, if found, order them to join a family; if they refused, they were sent to jail.
+  - The average family size in Waltham, Massachusetts in the 1730s was 9.7 children.
+  - Everyone was compelled by law to live in families. Town officials would search the town for single people and, if found, order them to join a family; if they refused, they were sent to jail.
+  - 90% of Puritan names were taken from the Bible. Some Puritans took pride in their learning by giving their children obscure Biblical names they would expect nobody else to have heard of, like Mahershalalhasbaz. 
+  - Puritan parents traditionally would send children away to be raised with other families, and raise those families’ children in turn, in the hopes that the lack of familiarity would make the child behave better.
+  - In 1692, 25% of women over age 45 in Essex County were accused of witchcraft.
+  - Wasting time in Massachusetts was literally a criminal offense, listed in the law code, and several people were in fact prosecuted for it.
+- Interview #Luhmann
+  - Vieles wird durch Zufall bestimmt, allerdings ist eine gewisse Vorbereitung notwendig um die zufälligen Ereignisse auch zu nutzen
+    - Beispiel: Liebe, ohne die Romane vorher gelesen zu haben ist das Erkennen und Reagieren in einer romantischen Ereignisses nicht möglich
+  - Man kann nichts erkennen, das man nicht unterscheiden kann
+  - Naturrecht: Notwendig für Verurteilung d. Nazi-Taten. Nicht alle Natur kann sich beobachten. Mensch als Teil der Natur kann durch Verstand beobachten. Naturrecht = philosophischer Verstand. Verstand de Menschen konvergiert aber vermutlich nicht. Wir können nicht alle fragen.
+  - Moral: Welche Moral? Selbst höchste Gerichte sind sich nicht immer einig.
+  - Alte Gesellschaften: Hierarchie - Adel, Bauern etc. -> oben wird Religion, Regeln etc vorgegeben und von allen gelebt -> Normative Struktur Hierarchisch durch Gott etc. - Mobilität der Gesellschaft nicht wirklich gegeben. Es ist klar wer wo was macht.
+  - aktuell: autonome Funktionssysteme ohne Überlappung. Karriere statt vorbestimmte Rollen. Karriere birgt Risiken. Wis ist die normative Struktur einer solchen Gesellschaft?
+    - Werte -> sind vorerst keine Normen sonder Präferenzen; Werte kann man nicht nachweisen, sie existieren bzw. gelten einfach. In der Philosophie ist das bereits abgeklungen. Im Grundgesetz, Rechtsprechung und vor allem in der Politik ist sie bestimmend. Parteiprogramm listet Werte und dabei spielt für Reihenfolge eine Rolle. Es gibt immer Konflikte zwischen den Werten. Die Werte sind von allen immer akzeptiert, sobald es aber konkret wird gibt es Konflikte. Die Werte geben uns ein stabiles Gerüst mit maximaler Entscheidungsfreiheit.
+  - Jede Gesellschaft hat Normen: Kommunismus Utopie, arme Ghettos etc
+  - Sozialistische Staatsformen sind u.A. untergegangen weil das pol. System alle diese Funktionssysteme nicht beherrschen konnte
+- #source The Philosophy Book
+  - Philosophy is about the process of trying to find answers using reasoning
+  - 'Wonder is very much the affection of a philosopher; for there is no other beginning of philosophy than this.' #Platon
+  - Branches of Philosophy
+    - Metaphysics: Ontology, ...
+    - Epistemology: How can we know?
+    - Ethics / Moral: what is a good life?
+    - Aesthetics
+    - Politics
+  - 'The point of philosophy is to start with something so simple as not to seen worth starting and to end with something so paradoxical that no one will believe it' #Russel
+  - The Classical period of ancient Greece effectively came to an end with the death of Alexander the Great in 323 BCE
+  - after Alexander different schools
+    - cynics
+    - scepticism
+    - epicureans
+    - stoics
+  - The Romans were only interested in stoicism
+  - Greek philosophies were preserved in the manuscripts and translations of the Arab world
+  - Eastern philosophy were less concerned with the nature of universe but with how to live good. confucianism and daoism -> south china Buddha
+- Author William Martin on the wonders of ordinary life:
+  - "Do not ask your children to strive for extraordinary lives.Such striving may seem admirable, but it is the way of foolishness. Help them instead to find the wonder and the marvel of an ordinary life. Show them the joy of tasting tomatoes, apples and pears. Show them how to cry when pets and people die. Show them the infinite pleasure in the touch of a hand. And make the ordinary come alive for them. The extraordinary will take care of itself." Source: The Parent's Tao Te Ching
+- Verfassungspatriot -> #Habermas
+- Entzauberung: ein Spielzeug, dass man kaputt macht um zu schauen, wie es funktioniert. Anschließend kann man mit dem Spielzeug nicht mehr spielen.
+- Podcast notes
+  - Meinungen haben wir nicht weil wir rational darüber entscheiden sondern wie Kleider die wie anhaben in dem uns unsere Freunde schön finden und wir nicht nass werden ...
+  - #Klimawandel im globalen Süden ein Bauer im Afrika hat keine Wahl. Wir im Westen sind wohlhabend und haben eine Wahl. Dadurch haben wir auch eine Verantwortung etwas zu ändern
+  - Vertrauen in Wissenschaftler ähnlich gering wie in Politiker
+- "I think this fits nicely with other evidence that making healthy people too aware of their mental health is potentially bad" Scott #Alexander
+- Podcast
+  - aufwachsen in bzw verbunden sein mit 2 Kulturen schützt einen für Nationalismus. Einer Kultur angehören führt irgendwann zum Nationalismus
+  - Referenzrahmen für viele Denker war das Christentum/ Vergleich zwischen Christentum und Aufklärung: Mensch ist außerhalb und über der Natur; Biblische Naturbeherrsvhung - Wissenschaftlivhe Naturbeherrsvhung; Seele - aufgeklärte Vernunft, christliche Heilgeschichte  irgendwann wird alles besser - Fortschritt; Mensch muss sich von sich erlöst werden;
+    - wir denken sehr oft noch sehr theologisch. Auch wenn es nicht mehr den Anschein hat. frei Märkte außerhalb der Natur: das sind extrrnalitaten
+    - vor Christentum gäbe es animalisten: die Natur lebt und wir sind nicht alleine und müssen uns mit Natur arrangieren/ Christentum wie eine Bombe in die damalige Kultur: Mensch ist Herr die Natur lebt nicht sondern ist Material für Mensch/ jetzt begreifen wir mit der Sprache der Wissenschaft wir leben in einem System mit der Natur
+
+#podcast #source

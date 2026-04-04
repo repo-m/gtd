@@ -1,0 +1,32 @@
+# #Cybersecurity #ISO21434
+
+- Goal: Verify everything (Zero Trust); Onion
+- CAL: Cybersecurity Assurance Level (The 4-D Mnemonic)
+    - 4 : Disaster / Death (Safety critical)
+    - 3 : Dangerous (Major function loss)
+    - 2 : Dollars (Theft/Fraud)
+    - 1 : Data (Privacy)
+- Process: 
+    - Definition: Asset
+    - Risk Analysis: TARA (Threads)
+    - Reqs: Safety Goals
+    - Design: Cybersecurity Concept (Controls)
+    - Implementation
+    - Testing
+    - Post-SOP: SUMS & Incident Response
+- Design concepts: System / Hardware / Software
+    - Isolation: Gateways; VLANs / HSM / Virtualization (Hypervisor: Isolates OS from OS); Sandboxing (RTOS/Scheduler+MPU: Isolates Task form Task)
+    - Monitoring: #SecOC (MAC, FV, Crypt) / Add noise; Sensor reset / HIDS (Memory Access)
+    - Integrity: NIDS (Türsteher) / Lock Dev-Channels / Secure Boot; OTA; Coding Standards
+- Test
+    - Penetration Testing: Grey Box (with knowledge) & Black Box (blind attack)
+    - Fuzzing: Flooding interfaces with random data to find crashes
+    - SAST (Static Application Security Testing)
+        - Hardcoded Credentials
+        - Buffer Overflow
+- Overhead
+    - Bandwidth & Payload: SecOC headers consume 2-4 bytes per frame, reducing data capacity and forcing signal fragmentation.
+    - Latency: Real-time processing delays caused by MAC calculation and verification.
+    - Hardware Cost: Requires higher-tier MCUs with dedicated HSM cores, Secure Flash, and crypto accelerators.
+    - Operational Friction: Debugging is hindered by encryption; Key Management logistics are complex.
+    - Documentation: ICD complexity increases significantly (tracking Freshness Values, MAC rules, and Data Types).

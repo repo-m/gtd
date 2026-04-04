@@ -1,0 +1,91 @@
+# Questions Reflecting the year 2024
+
+- **What was the most important lesson you learned last year?**
+  - #Clear - Stress doesn't come from hard work. Stress comes from avoiding what we know we need to face. It comes from lying to ourselves and pretending everything is fine when we know deep down what needs to be done.
+  - #Clear - "Limiting your options now will expand your opportunities in the long run because you can remain focused enough to master something.Keeping your options open now will reduce your opportunities in the long run because you divide your attention and end up doing an average job on seven different things. Are you falling into the pattern of always mastering one thing or always chasing the next thing?"
+    - focus on skills! Set goals
+  - I want to do my own thing instead of working for others and complaining about everything.
+  - Berlin-Kübra: Never ever act when you are angry. Wait till you can keep calm and than act.
+  - having cheat days destroys the whole diet. A diet needs to be a lifestyle and not plan.
+  - physical:
+    - besides strength, I also need endurance and flexibility training
+    - diet is key (not new LL)
+  - having a network is key
+  - do not rely on VW or automotive => Get more valuable => More skills
+  - do not talk about politics and religion
+- **What did you let go of?**
+  - sweeties (till 3 weeks :)
+- **What skills did you gain?**
+  - this is exactly the problem! The list here should be long but I have gained almost no new skill -> project req is changing that
+    - this is why focusing is important
+      - focus at work => Skills
+      - focus at own project => Skills
+- **What challenges did you overcome and what techniques did you use to overcome them?**
+  - I have tried to overcome my stage fright with joining toastmasters but have not mastered it yet.
+- **What did you do for your physical and mental health this past year?**
+  - physical: training at gym + diet
+- **What did you learn about yourself?**
+  - besides stage fright I have felt stressed and lost motivation. Now I have learned that the reason was, that I need to adress my possibilities to start own company.
+- **Who or what had the biggest impact on your life?**
+  - Quotes about stress -> see LL
+- **What new good and bad habits did you start?**
+  - good: Avoiding sugar
+  - bad: eating rests of the kids & hani
+- **What were the best and worst things that happened?**
+  - best thing: I have startet project req w. Sebastian
+  - worst thing: Berlin-Kübra; Gaza; 
+- **How did your relationships (family, friends, college, work) evolve?**
+  - Family: Getting better except for Kübra
+  - Friends, work: Getting better
+  - BUT no network yet
+- **What are you thankful for?**
+  - for family
+  - for health
+- **What did you do for your career growth?**
+  - trying to go to china
+  - trying overcome my blocker: Project Stage
+- **How did you have fun?**
+  - reading Philosophy and physics
+  - watching good movies
+  - playing soccer
+  - hiking
+  - holidays (Trükiye, Maldives+Video)
+- **What are you the most proud of this year?**
+  - starting project req
+- **What was the best decision you took?**
+  - starting project req
+- **How did you fail?**
+  - I am still failing with starting presentations
+- **What did you leave unfinished?**
+  - 80% of my goals I have set for this year
+- **What was the best compliment you received?**
+  - Sebastian, Yannick, Nelson (Work): Talking with you is motivating
+  - Sulaiman, Haytham, Abdul: Your body is looking good
+- **What advice would you give your last-year self?**
+  - do not try to change the world => focus more
+- **What is the most important goal I achieved this year?**
+  - Praying 5 times per day (again)
+- **What was my biggest relationship accomplishment?**
+  - Being good/better with Sebastian, Dominic and Kübra
+- **What was the most enjoyable part of my work (both professionally and at home)?**
+  - Work: Vehicle tests
+  - Home: Req
+- **In what area do I feel I've made my biggest improvements?**
+  - training, diet
+  - praying
+- **Who were my most valuable relationships with?**
+  - Sebastian
+- **Who is someone I got to know better this year?**
+  - ??
+- **Who do I wish I had gotten to know better in the past year?**
+  - ?? 
+- **What was the best way I used my time this past year?**
+  - Reading?
+- **What was my single biggest time waster in life this past year?**
+  - SMARTPHONE
+- **What was the biggest surprise of the year?**
+  - REQ
+- **What was my best memory of the year?**
+  - Maldives
+
+#archive

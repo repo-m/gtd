@@ -1,0 +1,5 @@
+{"timestamp": 1730500001, "ecu": "ABS", "code": "C1234", "severity": "warn"}
+{"timestamp": 1730500010, "ecu": "TCU", "code": "P0700", "severity": "error"}
+{"timestamp": 1730500025, "ecu": "ECM", "code": "P0420", "severity": "warn"}
+{"timestamp": 1730500040, "ecu": "ABS", "code": "C1234", "severity": "warn"}
+{"timestamp": 1730500055, "ecu": "TCU", "code": "P0700", "severity": "error"}

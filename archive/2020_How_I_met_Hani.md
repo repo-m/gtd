@@ -1,0 +1,16 @@
+# How I met Hani
+
+On 18 October 2013 I met Hani the very first time. After exact one year we had our wedding.
+I can't remember the exact date but I think it was August or September 2013 that my mother came from a wedding and told me from a woman she met there. The woman, Meryem, invited her to Hildesheim to an event in the mosque. My mother went there and attended the event.
+
+At this time my mother and my whole family looking for a girl for me. I was 24 and a student at the TU Braunschweig. In every family gathering the main topic was when I'll get married. I'm the eldest child in the family. My parents, my aunts and my grandmother wanted me to get married.
+
+In my time as a student I discovered the preacher Cübbeli Ahmet and became a follower of him. I liked the way he talked and liked his authentic style. Till than I never take my religion that serious like I did after I get to know this preacher. Lot of things changed. I stopped listening music, startet to do prayers five times a day and watched every talk of the Imam on the internet. Till than I was muslim because of my parents. I respected the rules of my religion. I never drank alcohol or had a girlfriend. But after I started to follow this preacher I had the feeling that I was muslim because of my own choice. This gave me a very different perspective and motivation to take my religion even more serious. At this time I believed that I discovered the meaning of life for me on my own. I rediscovered my religion. That was really satisfying and made me a very focused and happy person. So I had two things in my life: my study and my religion. At this time I got lot of respect from my family and friends because of my principles and my lifestyle. I had friends who told me that would I inspire them. Today I think that this lifestyle was very helpful for me, especially at this time. It prevent me from lot of things and first of all it made me happy.
+
+According to the islam founding a family is one of the important things a man can do in his life. Also I was a guy who had his desires;) Till than I never had a girlfriend or any relationship with a girl. And after I got 24 I decided that I want to get to know a girl and get to marry her. It was clear to me that this had to happen in a islamic way. 24 was an special age for me. The prophet got married when he was 24.
+
+So back to my mother who attended this event in a mosque in Hildesheim. Her agenda was clear. She was looking for a girl. There was no better place than a mosque. The girl had to be somebody who also rely on islamic principles. After my mother went back it was late and I already lied on my bed. She came in and gave me a stick with photos on it from the event. I started my computer and looked at the photos. My mother asked me if I see somebody who I wanted to meet and got to know. But I said no and went to bed again. I couldn't sleep. Then I decided to look at the photos again. I think that was one of my best decisions I made in my life. Because there she was. She was just in the background of 4 photos and there was a very short scene in a video where she walked in the background. I was attracted to her and on the next day I told my mother that I wanted to meet this girl.
+
+ok
+
+#archive 

@@ -1,0 +1,33 @@
+# #FuSa - Functional Safety #ISO26262
+
+- Goal: Fail-Safe; Shield
+- ASIL: Automotive Safety Integrity Level
+    - D : Deadly
+    - C : Crippling
+    - B : Broken
+    - A : Ache / Schmerzen
+- Failures -> Definition of Safe States
+    - SPF - Single Point Failures -> Redundancy, Integrity
+    - LF - Latent Faults -> Monitoring, Test
+- Process
+    - Definition: Item
+    - Risk Analysis: HARA (Hazards)
+    - Reqs: Safety Goals (ASIL)
+    - Design: FSC / TSC - Functional / Technical Safety Concept
+    - Implementation
+    - Testing
+    - Post-SOP: Production & Field Monitoring
+- Design Concepts
+    - Redundancy (Divers, FFI - Freedom from Interference): ASIL Decomposition / Dual-Core lockstep; Redundant Sensors / Diverse Redundancy
+    - Monitoring: #E2E / Safety PMIC; Ext WD / Flow Monitoring
+    - Integrity: MPU / ECC; BIST / Logic Checks; Coding Standards
+- Test
+    - Fault Injection
+    - BIST - Build-In Self-Test - At startup
+    - Unit Testing: MC/DC - Modified Condition/Decision Coverage
+- Overhead
+    - Complexity: More components required -> Redundancy, external monitors
+    - Cost: Higher BOM cost, **Tooling Cost**
+    - Size: More board space required
+    - Performance Overhead
+    - Development Effort  

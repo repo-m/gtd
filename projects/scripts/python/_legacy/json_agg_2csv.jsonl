@@ -1,0 +1,6 @@
+{"ts":"2025-10-10T10:00:00Z","user":"alice","url":"/api/v1/items","status":200,"bytes":512}
+{"ts":"2025-10-10T10:00:01Z","user":"bob","url":"/api/v1/items","status":200,"bytes":256}
+{"ts":"2025-10-10T10:00:02Z","user":"alice","url":"/api/v1/login","status":401,"bytes":128}
+{"ts":"2025-10-10T10:00:03Z","user":"carol","url":"/api/v1/items","status":500,"bytes":64}
+{"ts":"2025-10-10T10:00:04Z","user":"alice","url":"/api/v1/items","status":200,"bytes":1024}
+{"ts":"2025-10-10T10:00:05Z","user":"bob","url":"/api/v1/login","status":200,"bytes":128}

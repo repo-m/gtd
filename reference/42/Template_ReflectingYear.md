@@ -1,0 +1,71 @@
+# Reflecting the year
+
+- **What was the most important lesson you learned last year?**
+- **What did you let go of?**
+- **What skills did you gain?**
+- **What challenges did you overcome and what techniques did you use to overcome them?**
+- **What did you do for your physical and mental health this past year?**
+- **What did you learn about yourself?**
+- **Who or what had the biggest impact on your life?**
+- **What new good and bad habits did you start?**
+- **What were the best and worst things that happened?**
+- **How did your relationships (family, friends, college, work) evolve?**
+- **What are you thankful for?**
+- **What did you do for your career growth?**
+- **How did you have fun?**
+- **What are you the most proud of this year?**
+- **What was the best decision you took?**
+- **How did you fail?**
+- **What did you leave unfinished?**
+- **What was the best compliment you received?**
+- **What advice would you give your last-year self?**
+- **What is the most important goal I achieved this year?**
+- **What was my biggest relationship accomplishment?**
+- **What was the most enjoyable part of my work (both professionally and at home)?**
+- **In what area do I feel I've made my biggest improvements?**
+- **Who were my most valuable relationships with?**
+- **Who is someone I got to know better this year?**
+- **Who do I wish I had gotten to know better in the past year?**
+- **What was the best way I used your time this past year?**
+- **What was my single biggest time waster in life this past year?**
+- **What was the biggest surprise of the year?**
+- **What was my best memory of the year?**
+
+---
+
+- **One habit I’m going to build.**
+- **One bad habit I’m going to break.**
+- **One person I’m going to forgive.**
+- **One person I’m going to befriend or reconnect with.**
+- **One person I’m going to spend more time with.**
+- **One way I’m going to strengthen my personal relationship.**
+- **One thing I’m going to create.**
+- **One negative belief I’m going to drop.**
+- **One positive belief I’m going to reinforce.**
+- **One unhealthy food I’m going to stop eating.**
+- **One healthy food I’m going to start eating.**
+- **One book I’m going to read.**
+- **One new place I’m going to visit.**
+- **One adventure I’m going to go on.**
+- **One hobby I’m going to try.**
+- **One personal development goal I’m going to achieve.**
+- **One fitness goal I’m going to achieve.**
+- **One new food I’m going to try.**
+- **One fear I’m going to overcome.**
+- **One risk I’m going to take.**
+- **One thing I’m going to throw out.**
+- **One thing I’m going to save for and purchase.**
+- **One way I’m going to make more money.**
+- **One expense I’m cutting out.**
+- **One way I’m going to stop wasting time.**
+- **One skill I’m going to learn.**
+- **One class I’m going to take or workshop I’m going to attend.**
+- **One thing I will no longer tolerate.**
+- **One way I’m going to keep my energy high.**
+- **One way I’m going to relax and de-stress.**
+- **One way I’m going to get better sleep.**
+- **One way I’m going to have more fun.**
+- **One small way in which I’m going to make the world a better place.**
+- **One bucket list item I’m crossing off.**
+
+#system #template

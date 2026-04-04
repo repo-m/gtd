@@ -1,0 +1,7 @@
+# Was macht Hani unglücklich
+
+* Hanife: Weil Hanife kein renoviertes Badezimmer und keine renovierte Küche hat, kann sie ihren Aufgaben als Mutter, als Frau und als junge Frau nicht nachgehen. Aus diesem Grund ist sie aktuell in einem Pauszustand oder Depression. Wenn Hanife einen renovierten Badezimmer und Küche bekommt wird sie in der Lage sein ihr Leben zu strukturieren und zu leben und wird so wieder glücklich. Schuld an ihrem Unglück ist Mahmud. Anschließend wird sich Mahmud wundern und bereuen, dass er sich nicht schon vorher um eine renovierte Küche und Badezimmer gekümmert hat.
+
+* Mahmud: Hanife hat früh geheiratet und ist sehr früh Mutter geworden und ihre Verantwortungen und Aufgaben haben sich explosionsartig vervielfacht. Zudem gab es finanzielle Schwierigkeiten, ihr Chemie-Studium und 2019 die Krankheit von Mahmud. Weil Hanife in ihren Verantwortungen und vielen Aufgaben untergegangen ist, ist sie unglücklich. Wenn Hanife lernt sich selbst zu organisieren und ihre Aufgaben aufzuteilen und zu planen kann sie sich wie vor ihrer Heirat um ihre sozialen Kontakte kümmern. Hanife braucht soziale Kontakte wie eine Blume Wasser benötigt. Schuld an ihrem Unglück ist Mahmud. Aktuell ist es schwierig für ein kleines Budget eine renovierte Wohnung in BS zu finden. Mahmud schlägt vor in eine renovierte Wohnung mit ca. 1200€ Miete umzuziehen. Mahmud glaubt aber nicht daran, dass sich dadurch etwas ändern wird.
+
+#archive 

@@ -1,0 +1,3 @@
+{"ts":"2025-10-12T10:15:30Z","user":"u1","action":"login","duration_ms":120}
+{"ts":"2025-08-12T10:15:30Z","user":"u2","action":"info","duration_ms":130}
+{"ts":"2025-08-12T10:15:30Z","user":"u3","action":"login","duration_ms":30}

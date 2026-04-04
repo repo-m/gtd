@@ -1,0 +1,83 @@
+# Questions Reflecting the year 2022
+
+- **What was the most important lesson you learned last year?**
+  - I have learned that it is important not only to be consistent to the outside but also to the inside sugarr.
+  - I have learned that money is not everything.
+  - Since I have not tracked this question during the year it is difficult to answer. Therefore I will track my lessons learned weekly in 2023.
+  - One thing I learned is that I need to focus on my Lampenfieber and try to overcome my weakness, because it is an obstacle for my career at VW.
+  - I need to avoid to be disturbed from my smartphone. Therefore I always use now my Focus Mode.
+  - I have read the book Atomic Habits and learned how to establish new habits and avoid bad habits. I have learned that I need to make doing a habit easy.
+  - I have learned how to connect meditation with prayers.
+  - I need to meditate 10min instead of 5min in my morning routine
+- **What did you let go of?**
+  - I let go off my bad habit sugarr and spending unplanned time on smartphone and TV.
+- **What skills did you gain?**
+  - I have learned how to do job interviews. Therefore I have read a very great book.
+- **What challenges did you overcome and what techniques did you use to overcome them?**
+  - I needed to prepare for an assessment like job interview and I bought a book and did a very good preparation.
+- **What did you do for your physical and mental health this past year?**
+  - For my physical health I went to gym and went running.
+  - For my mental health I have my morning routine plus my prayers in which I am meditating.
+- **What did you learn about yourself?**
+  - I have learned that my stage fright is really a blocker. Far more than I thought.
+- **Who or what had the biggest impact on your life?**
+  - Books & Podcasts: 7 Habits, GTD, Atomic Habits, Philosophy
+  - Ending our Odyssee at Waldweg and our new apartment
+  - My new job at VW
+- **What new good and bad habits did you start?**
+  - New habits: Daily Meditation, Prayers, Reading (incl. w. Kids), Kids Plan, Gym, Diet, Running...
+  - Bad habits: Smoking when I am out w. Abdul and Furkan
+- **What were the best and worst things that happened?**
+  - Since I have not tracked this question during the year it is difficult to answer. Therefore I will track my Highlights weekly in 2023.
+  - Best things: Move to new apartments, new habits, ending Project at Waldweg, New Job at VW (I did not apply but VW called me), ...
+  - Worst things: Several presentation situations at VW -> Lampenfieber
+- **How did your relationships (family, friends, college, work) evolve?**
+  - Hani: Far better than 2022 -> After establishing good habits, moving to new apartment and breaking bad habit sugarr
+  - Kids: Better after Kids Plan and move to new apartment
+  - Parents: Better after calling mother weekly and biweekly Sohbet
+  - Brother/Sister: Same not much changes
+  - Colleagues: relationship w. new colleagues are not really good. I have to colleagues who are really toxic :(
+- **What are you thankful for?**
+  - I am thankful to be very close to finding a way in which I combined my religion and my rational thinking. I am thankful for the progress I have made
+  - I am thankful to be healthy and have a wonderful family
+  - I am thankful for having a perspective for the feature
+- **What did you do for your career growth?**
+  - I have changed my job from IAV to VW
+- **How did you have fun?**
+  - Getting insights from Podcasts & Books
+  - Weekly Planning :)
+  - After doing sport (running, gym)
+  - Watching movies
+- **What are you the most proud of this year?**
+  - My planning system and moving to VW
+- **What was the best decision you took?**
+  - Moving to new apartment
+  - Ending bad habit sugarr
+- **How did you fail?**
+  - I failed because of my unexpected rise of Lampenfieber in several presentations at work
+- **Who were my most valuable relationships with?**
+  - Hanife & kids
+  - Parents & brother, sister
+  - Buddies + Fatih
+  - Sebastian & Thomas
+- **Who is someone I got to know better this year?**
+  - ?
+- **Who do I wish I had gotten to know better in the past year?**
+  - ?
+- **What was the best way I used my time this past year?**
+  - Weekly Planning
+  - Reading books
+  - Morning Routine + Prayers
+  - Moments w. Family
+- **What was my single biggest time waster in life this past year?**
+  - Sugarr, Smartphone, TV 
+- **What was the biggest surprise of the year?**
+  - Job offer from VW
+- **What was my best memory of the year?**
+  - ?
+
+## Reference
+
+- [Planning](xxPlanning.md)
+
+#archive

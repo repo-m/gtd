@@ -1,0 +1,32 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GDSX//COMPLEAT v2.7.182.2//EN
+METHOD:PUBLISH
+BEGIN:VEVENT
+CREATED:20260401T231949Z
+DTSTAMP:20260401T231949Z
+LAST-MODIFIED:20260401T231949Z
+SEQUENCE:0
+UID:1e971ec6-576d-4f4a-a724-fc208ee7e3a6
+LOCATION:Los Angeles International Airport\, Tom Bradley International
+  Terminal                
+DESCRIPTION:Flugnummer:  BA 269\nFluggesellschaft:  British Airways\nKla
+ sse:  Business / R\nAbreise:  London - Heathrow\, Terminal 5\nAnkunft:
+   Los Angeles - Los Angeles International Airport\, Tom Bradley
+  International Terminal                \nAbflug:  Dienstag\, 28
+  April 2026\, 15:05\nAnkunft:  Dienstag\, 28 April 2026\, 18:15\nDauer:
+   11 Stunde(n) und 10 Minute(n)\nBA Buchungsreferenz:  YRIWNJ /
+  Bestätigt\nAmadeus Buchungsreferenz:  YRIWNJ\nReisende(r): AGDAS/MAHMU
+ D MR \n\n\nBitte beachten Sie folgendes:\nBei den angezeigten
+  Zeiten handelt es sich um lokale Ankunfts- und Abflugzeiten. Beim
+  Übertrag in Ihren Kalender werden die Zeiten auf die Zeitzone Ihres
+  Rechners\, bzw. Ihres mobilen Endgerätes umgerechnet.
+SUMMARY:Flug London (LHR) - Los Angeles (LAX)  BA 269 - 28 Apr Terminal
+  5 (15:05-18:15) YRIWNJ
+CLASS:PUBLIC
+PRIORITY:5
+TRANSP:OPAQUE
+DTSTART:20260428T140500Z
+DURATION:PT11H10M
+END:VEVENT
+END:VCALENDAR
