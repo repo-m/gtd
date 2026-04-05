@@ -1,6 +1,9 @@
-# Shelf
+# Books
 
-## 2026
+- 240 | The Checklist Manifesto
+- 512 | Thinking, Fast and Slow
+
+## Philosophy
 
 - 152 | #Jaspers - [Der philosophische Glaube](1948_Jaspers_DerPhilosophischeGlaube.md)
 - 157 | #Zizek - First as a strategy, than as a farce
@@ -12,11 +15,7 @@
 - 220 | #El-Benna - Risaleler
 - 220 | #Geylani - Cilaul-Hatir
 - 237 | #Kutub - Yoldaki Isaretler
-- 247 | #Bilici - Hamal Kürt
 - 247 | #Gazali - Itikatta Sözün Özü
-
-## Philosophy
-
 - 280 | #Zizek - Did somebody say totalitarianism?
 - 303 | #Aristoteles - Politika
 - 326 | #Ibn-Rusd - Tahafur Al-Tahafut: The Incoherence of The Incoherence
@@ -38,7 +37,7 @@
 - 925 | #Schopenhauer - Die Welt als Wille und Vorstellung II
 - 998 | #Schopenhauer - Parerga und Paralipomena II
 
-## Non-Fiction -> ???
+## Non-Fiction
 
 - 140 | #Nazif - Mehmed Akif
 - 193 | #McPherson - Memory Training
@@ -46,6 +45,7 @@
 - 224 | #Mir - Kurani Terimler ve Kavramlar Sözlügü
 - 227 | #Hawes - The Shortest History of Germany
 - 236 | #Kaynak - Sonuclardan Sebeplere
+- 247 | #Bilici - Hamal Kürt
 - 272 | #Zinsser - Writing to Learn
 - 302 | #Hill - Think and Grow Rich [20241225: p49; 20250101: p84]
 - 319 | #Marshall - Prisoners of Geography
@@ -60,7 +60,7 @@
 - 705 | #Truby - The Anatomy of Genres
 - 750 | #Zehra - Mezhepler Tarihi
 
-## Science -> Holidays
+## Science
 
 - 155 | #Enders - Elektromagnetische Felder
 - 312 | #Schumacher - Grundlagen der RT
@@ -71,7 +71,7 @@
 - 560 | #Feynman - [The Feynman Lectures on Physics Volume I](1963_Feynman_TheFeynmanLecturesOnPhysics.md)
 - 592 | #Feynman - The Feynman Lectures on Physics Volume II
 
-## Fiction -> Holidays
+## Fiction
 
 - 0047 | #Eichendorff - Das Marmorbild
 - 0061 | #Ionesco - Die kahle Sängerin
@@ -95,6 +95,8 @@
 
 ## 2025
 
+- 144 | #Ahrens - How to take smart notes (kindle)
+- 304 | #Newport - Deep Work (kindle)
 - 128 | #Zoeller - Hegels Philosophie [p.31]
 
 ## 2024
