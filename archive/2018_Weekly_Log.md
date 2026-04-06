@@ -1,0 +1,139 @@
+# Weekly Log
+
+- **2025-12-28** Working GitLab pipeline with docker, bazel -> Great flow during working on project
+- **2025-12-25** Breakfast @Kübi
+- **2025-12-18** Cinema w. kids: Zoomania 2; Funny movie
+- **2025-12-16** Met Sebastian; learned about HSM in WFS context
+- **2025-12-11** Presentation & Briefing 48V to head of EK
+- **2025-12-08** Presentation BN Synchro
+- **2025-11-29** Breakfast at Abduls with whole family.
+- **2025-11-28** Selected as one of 14.
+- **2025-11-28** Dinner at our place w. Grandparents. Abdul and parents joined later. Great photos.
+- **2025-11-20** Positive feedback from team and Bodo for joining ES team.
+- **2025-11-19** Nikolai called me and asked to join his team.
+- **2025-11-09** Switched from Windows to Linux/Ubuntu
+- **2025-11-09** Klein-Schöppenstedt-Riddagshausen Hiking w. Jaber & Abdul -> idea PlanB
+- **2025-11-07** Met Kai at my place and talked from 6pm to 3am
+- **2025-11-07** First discord call "PlanY" with Sebastian (plan is weekly Fridays 3 to 5pm) -> idea of switching from Windows to Ubuntu
+- **2025-01-11** Work feels not good because: Mu'min: coding and EE is not contributing to my project // NEW-ESMA: I am not tackling my stage fright -> I did not go to toastmasters => I NEED AN ADDITIONAL ESMA: BRAVE! // Ferd: More money: There is no updates on china/expats positions -> This will change! The question is how? //  Ferd: The future of my work is unclear and I am not pro active and too passiv // Ferd: I think there is no realistic path for a career for me // Ferd&Bari: I think that I am over-payed // Bari: I do not see any valuable skills I have- Work feels not good because -> create reflection notes -  => Add in all reference notes a due date => Check reference notes monthly
+- **2025------** ----------------------------------------------------------------------------------
+- **2024-01-27** Museum: Staatstheater Braunschweig: State of the Union
+- **2024------** ----------------------------------------------------------------------------------
+- **2023-11-19** Toastmasters! Yes - this is exactly what I was looking for.
+- **2023-11-05** Something is missing. A part of it is becoming fat. Spending too much time on smartphone. Stress at work: Lampenfieber. Only best thing I can do is: READING! Becoming an intellectual - Why? to correct other? Show others something? No. I think I am in love with philosophers and intellectuals. Now I am trying to find a reason why I want to become one myself. Islam protected me through life. Now it is asking me to travel and look for a bridge which can save me. What about papers in socials science? Zeitgeist is challenging
+- **2023-10-13** Museum: Shakespeare's Globe London: Macbeth
+- **2023-10-13** Museum: Savoy Theatre London: Sunset Boulevard
+- **2023-10-01** September was a great month for running
+- **2023-10-01** I am finally praying again w/o missing any prayer -> Source of happiness!
+- **2023-09-17** Relative: -> too much stress
+- **2023-08-27** we talked about status and both and talked about to be loosers. We only see people around us which are richer. Money is status. If we could we would reach out for more money. So we would act like real capitalists. But we also know that this is wrong and bad. According #Lacan there will be always a gap. We will always desire things we do not have. The result is our drive. So it is not like "we do not know what we are doing". It is more like "We know but are still doing it" ( #Zizek #Sloterdijk ).
+- **2023-08-27** Reading Spiegel & Book at the garden is really great
+- **2023-08-27** All of my mental power is needed for my work
+- **2023-07** Working on a hiphop beat
+- **2023-07** Visiting Phaeno with kids
+- **2023-07** Telling Han
+- **2023-07** Starting new workout plan Push Pull at the gym (taking more time: 90min)
+- **2023-07** Reading a hard passage from Zizeks book several times and finally understand it
+- **2023-07** Podcast Lex Fridman & Yuval Harari
+- **2023-07** Playing Ode to Joy on piano
+- **2023-07** Playing games with family
+- **2023-07** Meeting Sebastian
+- **2023-07** LL: Stop asking Hani to do stuff for me I could do myself
+- **2023-07** LL: Set up better alarms for prayer and directly pray on time!
+- **2023-07** LL: Prioritize tasks better at work
+- **2023-07** LL: fight career blocking weaknesses at work => Be more confident
+- **2023-07** LL: Be rational at work: You have two goals: 1. T+; 2. Handle --> STAGE
+- **2023-07** Laying down on Hani's laps while watching a thriller
+- **2023-07** Having meetings at work in english
+- **2023-07** Event TU BS:  Antrittsvorlesung Schöll, Heuser
+- **2023-07** Cycling to gym as routine
+- **2023-07** Cinema with Ayse: Super Mario Bros
+- **2023-07** Book time at 8pm
+- **2023-07-24** I like my holidays at home. I do think that traveling for me sometimes feels like a status thing and pressure form my social environment.
+- **2023-07-24**  I am grateful to had the experience in Hannover which let me feel like a looser. I thin there is lot of things I can learn from this experience.
+- **2023-06-04** Today I had a special moment. I have been woken up by my alarm at 04:00am for the fajr prayer. I was really thirsty and because there was nothing to drink on my night table I needed to go downstairs and take water out of the fridge. Also I looked at my smartphone and thought about my task of creating a 5year plan since I had birthday three days ago. I also had this thought that I do not have enough time to really read and think about a book and author. Than suddenly I had the idea to define one or two authors for each year in the next five years. I can not remember why but I decided to pick Zizek for 2023. Because I am muslim I felt the need to add also a islamic thinker: Ibn Sina. The next step was to order a book from Zizek on amazon. I also startet reading one of my older notes from June 2021 about a youtube video in which Zizek spoke about ideology. The interesting part of this is, that I realized this is a big project and perfect one to use ChatGPT. So I started a new chat within ChatGPT and asked about Zizek. I also asked ChatGPT to correct my english during this project in which I wanted to understand, summarize and think about the main theses of Zizek. After some work with ChatGPT the limitations of the free version were obvious and decided to subscribe for the Premium version of ChatGPT. After several work with ChatGPT my alarm rang again and it was 05:45am which means that it was time to go running. But I was in a flow and worked till my free 25 questions with ChatGPT 4 were used up. It was 08:45am and I went running.
+- **2023-05** Guests: Wolf & Lisa
+- **2023-04** Guests: My Family
+- **2023-04-02** This year is one of my best Ramadan months ever
+- **2023-03** Guests: Hanis Family
+- **2023-03** Guests: Fatma Hala
+- **2023-03-11** Museum: Staatstheater Braunschweig: Schimmelreiter
+- **2023-02** Guests: Hala Hanife
+- **2023-01** Yearly Planning: I took the time and it was very worth it. There is always potential.
+- **2023-01** Yearly Planning: I took the time and it was very worth it. There is always potential.
+- **2023-01** Traveling with Nelson & Yannick - feedback from Yannick: You are very thoughtfull, deep and philosophical -> wise :)
+- **2023-01** Traveling with Nelson & Yannick - feedback from Yannick: You are very thoughtfull, deep and philosophical -> wise :)
+- **2023-01** Starting Running again.
+- **2023-01** Starting Running again.
+- **2023-01** Started "daily reading at 8pm for an hour" habit
+- **2023-01** Started "daily reading at 8pm for an hour" habit
+- **2023-01** Nils (Bosch) in Stuttgart - inspiring - like Dominic from Elektrobit -> HW passion
+- **2023-01** Nils (Bosch) in Stuttgart - inspiring - like Dominic from Elektrobit -> HW passion
+- **2023-01** My self management at work is effective. Seeing that is great.
+- **2023-01** My self management at work is effective. Seeing that is great.
+- **2023-01** LL: I had a complete free day for me alone at home and after my morning routine and work for three hours I have wasted my hole day. I have been struggeling with sugarr, eaten way too much candies and watched TV the hole day! I could have used the day for my projects like LINUS or could have read a book etc.
+- **2023-01** LL: I cannot have always a planned day. Sometimes I am getting out of my routines.
+- **2023-01** LL: During Beyza was talking I have interrupted her and picked up a book from my shelf and told her that I am also struggling with the same questions -> Listen - not to react but to seek for understanding! - Don't equate your experience with theirs
+- **2023-01** LL: Diet JoJo-Effect: Even after I have done all my planned sport. I gained all the 0,6kg again. which i had lost the week before, because I have eaten three days in a row candies. I could have been disciplened and not have eaten candies or continued the bad habit three days in a row. I need a new habit: Do not eat candies. I also might need a rule to not repeat a bad habit two days in a row
+- **2023-01** KPI presentation at BNA Roadmap! First strike at project Stage! Let's go!
+- **2023-01** KPI presentation at BNA Roadmap! First strike at project Stage! Let's go!
+- **2023-01** Kick-off biweekly is great.
+- **2023-01** Kick-off biweekly is great.
+- **2023-01** Inspiring text about holidays from Hartmut Rosa!
+- **2023-01** Inspiring text about holidays from Hartmut Rosa!
+- **2023-01** Guests: Esra Hala
+- **2023-01** Great alternative for running: Jumping row :)
+- **2023-01** Great alternative for running: Jumping row :)
+- **2023-01** First quarterly Planning-Dinner w. Hani: It was just perfect how motivated she was and how productive and fun the night was
+- **2023-01** First quarterly Planning-Dinner w. Hani: It was just perfect how motivated she was and how productive and fun the night was
+- **2023-01** FIFA Again: Discovering again how fun playing FIFA with others is.
+- **2023-01** FIFA Again: Discovering again how fun playing FIFA with others is.
+- **2023-01** Esra hala visited us -> I liked to talk to Beyza and hala!
+- **2023-01** Esra hala visited us -> I liked to talk to Beyza and hala!
+- **2023-01** Derivation Differential & Integral
+- **2023-01** Derivation Differential & Integral
+- **2023-01** Boxing on Mondays
+- **2023-01** Boxing on Mondays
+- **2023-01-25** Great night w. Hani -> Resonance
+- **2023-01-25** Great night w. Hani -> Resonance
+- **2023-01-09 BNA Roadmap:** To control my Lampenfieber is the most important goal. I need to be able to not only think but also presenting my ideas. Prepare for presentation till Wednesday and seek for first win for project Stage. Result: Strike!
+- **2023-01-01** We have invited everyone to new year and had a great time together. Playing games was really fun.
+- **2023-01-01** Hani has produced wonderful paintings
+- **2023------** ----------------------------------------------------------------------------------
+- **2022-12** Guests: Hanis Amca & Fatih & Sümeyra
+- **2022-12-27**: We went to cologne for two days and visited family from Hani. I think I have enjoyed the two days.
+- **2022-12-18** We have played at home. Ayse hat a presentation with her ballet course. It was great.
+- **2022-12-04**: Soccer on Tuesday - It was great. Everyone liked it. I played not very bad.
+- **2022-12-04**: On Monday my presentation went wrong and I left the meeting. The day was hard for me and I was depressed. It took my the whole Monday to went over that.
+- **2022-12-04**: I love books.
+- **2022-12-04**: I have watched the Germany games and yesterday the Argentina games -> It was great but Germany is out of the competition
+- **2022-12-04**: Great time with our guests: Jaber, Tamana, Sulaiman and Diba on Sunday
+- **2022-12-04** Visit Haytham & Sara: Great time with buddies: Haytham, Sarah, Rego, Gülsen, Sulaiman, Diba, Hadi and the kids
+- **2022-12-04** *RWT*: Electrical Engineering: Still one of the best ideas -> I love to maths
+- **2022-11** Guests: Muhammed & Behiye
+- **2022-11** Guests: Jaber & Tamara -> Schale Gitter, Sulaiman & Diba;
+- **2022-11** Guests: Grandparents
+- **2022-11** Guests: Emre & Didem (Orchidee, Puzzle); Hasan & Vildan (Schokolade, Fruchtgummi)
+- **2022-11-27:** Rwt was one of my best ideas. I think at the end I love the theory of electrical engineering.
+- **2022-11-27:** My grandparents visited us.
+- **2022-11-27:** Great time with Jaber and Sulaiman, Muhammed & Behiye and my grandparents.
+- **2022-11-20**: This evening was not so good because I needed to wait more than one hour and also both Ice cafes I planned to go were closed; We went to Mc's and I had a short argument with Hani; Also the birthday party of Ayse was not very good; I need to be more involved in the planning next time;
+- **2022-11-20**: I think I did well on my social contacts this week. There was no situation were I felt bad; During the discussion with Jaber I made some Ad Hominem arguments which was bad; Also I could not stay calm at MCs with hani and the kids;
+- **2022-11-20**: I enjoyed the walks with Hani; She is very motivated and planned lot of activities;
+- **2022-11-20**: I bought flowers to Hani and I think we reached a next level in our relation, which is just great; I also really enjoy to be there and care for Ayse and Selma; Only missing thing is for now the topic "Reading Books for kids", which I already have discussed with Hani;
+- **2022-11-14** Museum: Deutsche SchauSpielHaus Hamburg: Kindeswohl
+- **2022-11-13**: We had Sohbet at Abduls place and combined it with Yenges birthday. This day was absolutely chaotic.
+- **2022-11-06** I was prepared well and the exam went great. I think I have past with 100% of the point
+- **2022-10** Guests: Regaib & Gülsen -> 50€ + Blume ; Haytham & Sara -> Duftstäbchen + Westwing 8x Gläser und 1x Karaffe von Westwing;
+- **2022-10** Guests: Mehmet Dayi & Yasemin Yenge (Kütahya Kahve seti)
+- **2022-10** Guests: Hasan & Vildan -> Vase, Tortenplatte, Duftstäbchen; Fatih & Maide -> 30€ und Geschenke für Kinder
+- **2022-10** Guests: Hanis friends
+- **2022-10-30** Work: Prepare for IHK Prüfung --> Calendar
+- **2022-10-16** We went to Hamburg on Friday and stood in a very well hotel. On Friday we went to theater Schauspielhaus and watched Kindeswohl. After that we went to Alex and reviewed the last year. On the next day we went to the Alster, shopping and than back to BS. In total it was great. We also aligned that we will plan our next Anniversaries together. Next year we are planning to travel to London. We created a honey-plan and a holiday plan.
+- **2022-10-16** EKEI: My presentation was very good. I am sure that everyone liked it. Perfect!
+- **2022-09** Guests: Sulaiman & Diba -> Ikea Gutschein 50€;
+- **2022------** ----------------------------------------------------------------------------------
+- **2021-10-16** Museum: Deutsche SchauSpielHaus Hamburg: Richard the Kid & the King
+- **2021------** ----------------------------------------------------------------------------------
+- **2018** Museum: Staatstheater Braunschweig: Was ihr wollt
+- **2018------** ----------------------------------------------------------------------------------

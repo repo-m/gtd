@@ -1,0 +1,34 @@
+# #Testing : Unit tests, SIL, HIL vs Mule testing
+
+- SWE.4 Software Unit Verification
+  - PC / Scripts / White-box
+  - Test Focus
+    - Unit Test: Dynamic checking logic + Code Coverage
+    - Static Analysis: Static checking coding standards/MISRA
+  - Value: Extreme Speed
+  - Trade-off: High Maintenance
+  - Blind Spot: Interfaces & Communication
+- SWE.5 Software Integration Tests
+  - PC / Component SIL / Grey-box
+  - Test Focus: Interfaces & Interactions/Handshakes
+  - Value: Early Interface Derisking
+  - Trade-off: Stub Dependency
+  - **Blind Spot: Target CPU Timing & Hardware I/O**
+- SWE.6 Software Qualification Test
+  - PC / Full-System SIL (Non-Target SIL vs Target-Linked SIL) / Black-box
+  - Test Focus: SW Reqs
+  - Value: **Parallelization**, Scalable Virtual Driving
+  - Trade-Off: Simulation Drift
+  - **Blind Spot: Hardware I/O, Noise**
+- SYS.4 System Integration Test
+  - Rig / Domain/Cluster HIL / Black-box
+  - **Test Focus: System integration: Network, Electrical, Timing**
+  - **Value: Safe Fault Injection***
+  - Trade-Off: HW Scarcity, Cost
+  - Blind Spot: Real-World Physics: gravel road, extreme temp, RF interference, noise on communication lines, noise
+- SYS.5 System Qualification Test
+  - Rig / Full-Vehicle HIL or Vehicle(Mule) / Black-box
+  - **Test Focus: Total Vehicle Validation: Human-Machine Interface (HMI), Vehicle Dynamics (driving feel, thermal management, complex real-road scenarios)**
+  - Value: Real-World "Ground Truth"
+  - Trade-off: Slow, Dangerous
+  - Blind Spot: High-risk edge cases (crashes)

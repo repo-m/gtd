@@ -1,0 +1,118 @@
+# Einführung in die Philosophie - Daniel-Pascal #Zorn
+
+- Sophistik heisst, also von der selbstverständlichen Inanspruchnahme von Fehlschlüssen und logischen Tricks, um das Gegenüber in die Bestätigung der eigenen Sichtweise zu locken.
+
+## Teil I - Philosophische Lektüre
+
+- Eigenständige und selbständige Auseinandersetzung bzw. Lektüre der Originaltexte
+- Zeit und thematische und methodische Vielfalt
+- Text
+  - Inhalt/Information
+  - Machart
+  - Aufbau
+  - Struktur
+  - Vollzugsweise
+- Unbefangenheit antrainieren -> Wir bringen nicht zu wenig, sondern eher zu viel zur Lektüre mit
+- Dialog von Leser und Text
+  - Einklammern der eigenen Geltungsansprüche
+  - Begreifen um was es geht (Analog: Roman lesen) -> Was im Text passiert, passiert erst einmal im Text - und zwingt mir nicht gleich eine Sichtweise auf
+  - Problemstellung (allgemeine und die des Philosophen) im Text suchen
+  - Nicht Aussagen, sondern Aussagen über Aussagen, nicht das Begreifen von Wirklichkeiten, sondern die Diskussion von begrifflichen Zugängen zur Wirklichkeit prägen die philosophische Auseinandersetzungen.
+  - Kritik: griechische krinein -> unterscheiden, prüfen
+    - Um zu Prüfen sind Maßstäbe notwendig
+      - Vorerst Keine Maßstäbe von Außen
+      - Vorerst Text an seinen eigenen Ansprüchen messen -> Man muss die Ansprüche nicht akzeptieren
+      - Anschließend können bewusst äußere Maßstäbe herangetragen werden
+  - Text dialogisch nähern: Erst Text dann Sekundärliteratur
+- Im Vorfeld über Kontext informieren
+  - Historische Wörterbuch der Philosophie
+  - Der Grundriss der Geschichte der Philosophie
+  - Geschichte der Philosophie Wolfgang Röd
+  - Stanford Encyclopedia of Philosophy (SEP)
+  - Perseus Digital Library
+- Dreizehn Tipps zur Lektüre philosophischer Texte
+  - (1) Man kann aus eigener Kraft schaffen, einen philosophischen Text zu verstehen
+  - (2) Philosophische Texte sind kompliziert
+  - (3) Langsames Lesen ist besser als schnelles
+  - (4) Aufmerksames Lesen ist besser als Querlesen
+  - (5) Geduld haben mit sich un dem Text
+  - (6) Einen Text Satz für Satz lesen
+  - (7) Von innen nach außen lesen
+  - (8) Nach der Ausgangsfrage oder dem Denkproblem des Philosophen suchen
+    - Will er etwas empirisch Gegebenes beschreiben?
+    - Oder will er eine These argumentativ rechtfertigen?
+    - Geht es ihm um reale oder um begriffliche Verhältnisse?
+    - Fragt er nach der Genese, dem Prozess, der Entwicklung - oder nach der Geltung, der logischen Übereinstimmung mit sich selbst?
+    - Übernimmt er ein Problem von einem anderen Philosophen oder formuliert er ein eigenes Problem?
+  - (9) Den Text für sich systemtaisch gliedern.
+    - (9.1) Ausgangsfrage, Problemstellung, Denkproblem, ...
+    - (9.2) Thesen
+    - (9.3) Thesenerläuterungen
+    - (9.4) Begründungen
+    - (9.5) Schlussfolgerungen
+    - (9.6) Stille Voraussetzungen: Begriffe, Grundsätze, Verhältnise im und am Text, ...
+    - (9.7) Erläuternde Abschnitte: Exkurse, Beispiele, Bilder, Anspielungen, ...
+  - (10) Stilmittel beachten
+    - z.B. Platon: Inhalt der Argumente in Dialogen nicht zentral -> Es geht eher um die Art und Weise -> Hebammentechnik
+    - Philosphie verwand mit Mathematik, aber auch antikes Theater
+    - Dichtung: Epos, Lyrik, Drama
+    - Ironie -> Kann als Ausdruck von Zweifel und Distanz funktionieren
+  - (11) Auch große Philosophen machen Fehler!
+    - nicht selten haben Fehler etwas mit dem Denkproblem eines solchen Philosophen, mit seinen stillen Voraussetzungen oder mit historisch (noch) nicht verfügbaren Wissen zu tun.
+  - (12) Immer den Kontext beachten!
+    - Erst Text lesen und anschließend über Kontext informieren.
+    - Einführung
+    - Antwort auf einen bestimmten Diskussionsbeitrag
+    - Kritik einer bestimmten Tradition
+    - Anspruch auf eigenen Forschungsbeitrag
+    - Kommentar zu einem Text
+    - Textgattung
+      - Fragmente
+      - Lehrgedichte
+      - Dialoge
+      - Abhandlungen
+      - Erzählungen
+      - Briefe
+      - Gebete
+      - Aphorismen
+      - Sprüche
+      - Vorlesungen
+      - Kommentare
+      - Monographien
+      - Spezialformen: Quaestio, Summe, Traktate, Essays, ...
+    - Art und Weise wit ein Text die philosophische Tradition rezipiert
+      - Werden nur bestimmte Namen genannt? Wenn ja: Wofür stehen sie? Für eine ganze Schule, ein Einzelwerk oder gar nur einen bestimmten Text?
+      - werden andere philosophische Positionen ausführlich dargestellt?
+      - auf welche Texte werden referenziert? Welche nicht?
+      - Sind die Darstellungen korrekt? Sind sie vollständig? Pauschal, ...
+  - (13) Eigene Lektüre organisieren
+    - Eigene Gedanken und Ideen notieren
+- Immer direkt Hauptwerke lesen!
+- Lektürehinsichten und Analysemethoden
+  - Kontextgebundene Lektüre
+    - Relevanz, Historisch, Biographie
+    - Bestimmte Perspektive zu einer bestimmten Zeit
+    - Welche Philosophen wurden gelesen bzw. sind bekannt?
+    - Nachteil bei Verabsolutierung: Wer ein philosophisches Werk nur als historisches oder biographisches Dokument liest, der landet schnell in bloß geschichtswissenschaftlichen Darstellungen oder in psychologischen Spekulationen
+    - Vorteil: Philosophiegeschichte als eine Geschichte von - oft sehr einsamen - Menschen lesen,, die miteinander in einem großen Gespräch sind, das viele Jahrhunderte überspannt.
+  - Systematische Lektüre
+    - Vorteil: Vergleichbarkeit zwischen Texten
+    - Nachteil bei Verabsolutierung: Wer die eigene Perspektive als einzigen Maßstab voraussetzt, kann am Ende bei solchen Autoren nur noch feststellen, wie weit sie davon entfernt sind. Das Nacheinander der Philosophen wir dann zu einer Fortschrittsgeschichte konstruiert, an deren Ende man selber steht.
+    - Je öfter man etwas unter einem bestimmten Licht betrachtet, desto selbstverständlicher kann einem dieses Licht erscheinen. 
+    - Mehrere systematische Perspektiven ausprobieren oder miteinander kombinieren
+  - Textimmanente Lektüre
+    - Fokus Aufbau bzw. Architektur des Textes
+    - Achte auf Meta-Ebenen in einem Text -> "Leiter" -> Bewegen auf mehreren Stufen im Text
+    - Eugen #Fink - Inhaltliche Ebene: Was sagt der Text? & Operative Ebene: Was tut der Text? Welche Begriffe gebraucht er -> Art und Weise wie der Text gebaut ist
+- Die Verantwortung für den Text - Vermeiden, dass der Text als Spiegel oder Instrument der eigenen Interessen erscheint.
+
+- don'ts
+  - Rezeption bzw. Sichtweise auf Text von jemanden (Professor, Intellektuellen, ...) verlassen (ausborgen ist ok)
+  - Nicht an Inhalten und damit an Zusammenhang und Sicherheit hängen -> kritische Reflexion auf stille Voraussetzungen schafft Lücken und stellt Selbstverständlichkeiten in Frage
+
+## Notes
+
+- [x] Create template for Booknotes
+- [ ] Define rules for underlining text in books
+
+#source #Zorn

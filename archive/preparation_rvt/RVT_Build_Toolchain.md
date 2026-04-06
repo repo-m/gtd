@@ -1,0 +1,119 @@
+# RVT Build Toolchain
+
+## Bazel @ RVT
+
+- Bazel: Build system
+- TC397 with SafeRTOS
+- Build system is built in three layers
+  - Core Common: Application and Core Services
+  - Core Platform: RTE (non-Autosar), OS (SafeRTOS), Libs (TCP/IP, #UDS , #E2E , ...), Device, ECU-Abstraction, Driver, MCAL, HAL
+  - Project integration: Specific configuration
+- Bazel macros
+  - RTE Generation
+  - Calibration generation  
+  - Device tree generation
+  - COM-Stack generation
+  - Diagnostics generation
+  - Watchdog-Manager generation
+  - Linker generation
+  - Compiler-flag generation
+  - Fake test doubles for unit tests generation
+
+### Bazel
+
+- hermetic builds: all dependencies explicit defined -> reproducible builds
+- scalable: supports lager code basis with multiple targets and parallel execution
+- remote execution: builds can be executed on server
+- integrated tests: unit-tests, coverage, static analysis via Bazel
+- cross-platform: linux, wsl, windows
+- principles in the project
+  - Mono repo for all components (ECUs, bibs, tools) -> same workspace
+  - declarative build-files: Each component defines its targets in one build file
+  - strict dependency rules
+    - only direct dependencies mentioned
+    - no transitive dependencies
+    - visibility as restrictive as possible
+  - formatting and style
+   - build files needs to match the output from Buildifier and hold to internal style guideline
+- application in project
+  - build of ECUs: bazel build //path
+  - execution unit tests: bazel test //path
+  - generation of coverage reports: bazel coverage //path
+  - activation of remote execution: bazel build --config=remote-ubuntu-22-04-engflow //project path
+  - check formatting: buildifier --lint=warn BUILD
+- integration in project
+  - Python-tools: Bazel manages Python dependencies via requirements.in and generates lockfiles for hermetic builds
+  - SiL-Framework: Bazel integrates Tools like Pyctype-Generator for SIL
+  - Diagnosis and Code generation: Generation for RTE, COM and calibration are implemented as Bazel-Macros
+- best practices
+  - use snake_case for all target names
+  - no recursive globs
+  - use implementation_deps for private Header
+  - mark failed targets witch tags = "manual"
+  - BUILD files must be conform with Buildifier
+
+### Workflow
+
+- Start Bazel -> **PHASE 1**
+- **PHASE 1: Configuration & Injection** [Bazel prepares environment]
+  - Platform Config Constraints Analysis [Bazel reads platform information and ensures that the toolchain is correct for TC397 and SafeRTOs]
+    - Dependency Injection via defs.bzl [Bazel reads information and injects dependencies and "adjusts" generic libs from core-platform for the specific project]
+      - Open File Hen pzm.opt [File is the central place in which all compiler-flags, includes, defines, -DMCU_TC397 information are stored; for all 1000+ libs]
+      - go to **PHASE 3** Compile @core.platform Libs 
+- DBC / ARXML -> com-tools -> **PHASE 2**
+- **PHASE 2: Code generation** [Generation of Model files, C and h-files]
+  - RTE generation -> **PHASE 3** Compile generated code
+    - Input: Task definition and SWC interfaces
+    - Process: Mapping signals, runnables, tasks and cores
+    - Output: C-code for task bodies, inter-core-communication
+  - Device Tree generation && HAL Generation -> **PHASE 3** Compile generated code
+    - Input: Device tree fragments from hardware/device_tree
+    - Process: Merges all fragments to one system
+    - Output: Init.c/.h (init pins, ADC, PWM, SPI chips, ...)
+  - Network / Comms Generation -> **PHASE 3** Compile generated code
+    - Input: PDU/Bus (.dbc, .arxml; Ethernet/LIN/CAN) information
+    - Output: Network stack and PDU Router configuration
+  - Diagnosis generation -> **PHASE 3** Compile generated code
+    - Input: Diagnostics events and DTCs and data identifiers for #UDS
+    - Process: Generation of diagnostics tables
+    - Output: C-Code for #UDS stack (service-table, read/write functions)
+  - Watchdog-Manager generation -> **PHASE 3** Compile generated code
+    - Input: Checkpoint definition from hardware/wdg
+    - Outpur: config for watchdog Manager (alive supervision)
+- **PHASE 3: Compile** [C-Compiler (for example Tasking Tricore Compiler) compiles everything in to machine instructions .o-files]
+  - Compile Generated Code -> **PHASE 4** Linker execution
+    - [Output from PHASE 2 get compiled]
+  - Compile App Shims/Logic -> **PHASE 4** Linker execution
+    - [Handwritten code from code/swc_cfg (Business logic & shims) get compiled]
+  - Compile Compile @core.platform Libs -> **PHASE 4** Linker execution
+    - [Driver and OS files from @core.platform get compiled together with injected configuration from PHASE 1]
+- **PHASE 4: Linking** [Decision where the code lands in the pyhsical memory. In the TC397 with 6 cores and several Flash/RAM banks this is high complex]
+  - Global Memory-Layout & Task Memory Layout
+    - Linker Generation
+      - Linker Script
+        - Linker execution
+          - Raw ELF files
+            - -> **PHASE 5** A2L Generation Merge ELF Addr + Cal Data
+            - -> **PHASE 5** CRC Calculation
+- **PHASE 5: Post-Processing & Calibration**
+  - Parameter Definition
+    - A2L Generation Merge ELF Addr + Cal Data -> pzm.a2l
+  - CRC-Calculation
+    - -> ELF to Hex Converter -> PZM.hex -> Components.tsv -> component.tsv
+    - pzm_crc_crc.txt
+  - Vehicle Config
+    - A2L Generation Merge ELF Addr + Cal Data -> pzm.a2l
+    - HIL metadata -> hiol_metadata.yaml
+
+  - Hex converter & CRC [validated final .hex file ready for the bootloader]
+    - Input: hex and elf files
+    - Output: validated final .hex file
+  - A2L generation [File for calibration tool]
+    - Input: ELF files and calibration files from rte
+    - Output: .a2l file
+  - HIL meta data [Information how HIL needs to be configured for the given binary]
+    - Input: build and vehicle config
+    - Output: YAML file
+  - Release manifest [Needed for Flashing tool in the production and service to ensure right version in right vehicle]
+    - Input: .hex-, crc-files and version information
+    - Output: Tab-Seperated Values (TSV) file -> used as documentation for release 

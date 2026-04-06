@@ -1,0 +1,9 @@
+[submodule "projects/REQ"]
+	path = projects/REQ
+	url = git@github.com:ecxs-daedalus/req.git
+[submodule "projects/GYM"]
+	path = projects/GYM
+	url = git@gitlab.com:hm13/gym.git
+[submodule "projects/MINIRVT"]
+	path = projects/MINIRVT
+	url = git@gitlab.com:hm13/minirvt.git

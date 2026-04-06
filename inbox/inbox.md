@@ -6,6 +6,7 @@
 - synch password files
 - next books on methodology
 - update sync.sh for new structure
+- check ingredient for next week -> Add to tdbr
 
 ### Kids
 
