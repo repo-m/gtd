@@ -1,5 +1,0 @@
-{"ts_ms": 1000, "level": "INFO", "service": "auth", "msg": "login ok", "user_id": "u1"}
-{"ts_ms": 1010, "level": "ERROR", "service": "auth", "msg": "bad pwd", "user_id": "u2"}
-{"ts_ms": 990,  "level": "INFO", "service": "auth", "msg": "late event"}
-{"ts_ms": 2000, "level": "WARN", "service": "api",  "msg": "timeout", "user_id": "u1"}
-{"ts_ms": 2000, "level": "WARN", "service": "api",  "msg": "timeout", "user_id": "u1"}

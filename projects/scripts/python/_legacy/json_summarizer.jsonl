@@ -1,6 +1,0 @@
-{"timestamp": 1734172800000, "level": "INFO", "service": "api", "msg": "login ok", "user_id": "u1"}
-{"timestamp": 1734172800500, "level": "WARN", "service": "api", "msg": "slow query"}
-{"timestamp": 1734172801000, "level": "ERROR", "service": "db", "msg": "deadlock"}
-{"timestamp": 1734172801500, "level": "INFO", "service": "api", "msg": "login ok", "user_id": "u2"}
-{"timestamp": 1734172802000, "level": "INFO", "service": "web", "msg": "render"}
-{"level": "INFO", "service": "web", "msg": "render"}

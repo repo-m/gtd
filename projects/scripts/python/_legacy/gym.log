@@ -1,5 +1,0 @@
-timestamp=2025-10-14 08:32:15 level=INFO message=System started
-timestamp=2025-10-14 08:33:10 level=WARNING message=Low battery voltage detected
-timestamp=2025-10-14 08:33:45 level=INFO message=Reinitializing CAN interface
-timestamp=2025-10-14 08:34:05 level=ERROR message=Sensor failure on channel 3
-timestamp=2025-10-14 08:34:30 level=INFO message=System recovered successfully
