@@ -8,5 +8,5 @@
 	path = archive/MINIRVT
 	url = git@gitlab.com:hm13/minirvt.git
 [submodule "projects/VOWEL"]
-	path = projects/VOWEL
+	path = archive/VOWEL
 	url = ssh://git@192.168.178.194:2222/m/vowel.git
