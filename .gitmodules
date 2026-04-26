@@ -1,5 +1,5 @@
 [submodule "projects/REQ"]
-	path = projects/REQ
+	path = archive/REQ
 	url = git@github.com:ecxs-daedalus/req.git
 [submodule "archive/GYM"]
 	path = archive/GYM
