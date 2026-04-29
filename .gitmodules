@@ -2,7 +2,7 @@
 	path = archive/REQ
 	url = git@github.com:ecxs-daedalus/req.git
 [submodule "archive/GYM"]
-	path = archive/GYM
+	path = projects/GYM
 	url = git@gitlab.com:hm13/gym.git
 [submodule "archive/MINIRVT"]
 	path = archive/MINIRVT
