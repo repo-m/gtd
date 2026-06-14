@@ -1,0 +1,13 @@
+title: Minimal
+identifier: 00000000-0000-0000-0000-000000000001
+prefix: REQ
+max: 2
+next: 3
+root: 1
+requirements:
+- id: 1
+  children:
+  - 2
+- id: 2
+  text: ''
+  children: []

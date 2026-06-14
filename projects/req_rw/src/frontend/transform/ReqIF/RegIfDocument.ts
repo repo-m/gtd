@@ -1,0 +1,1 @@
+export { createReqIFDocument } from '../XMLDocument';

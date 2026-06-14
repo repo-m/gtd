@@ -1,0 +1,27 @@
+identifier: 550e8400-e29b-41d4-a716-446655440000
+title: Req.rw Demo Specification
+prefix: REQ
+description: A sample requirements document bundled with Req.rw for browser mode.
+max: 5
+root: 1
+requirements:
+  - id: 1
+    heading: Req.rw Overview
+    text: Req.rw is a desktop and browser requirements management tool. Requirements are stored in .rq files using YAML syntax that is human-readable and Git-mergeable.
+    children: [2, 3, 4, 5]
+  - id: 2
+    heading: File Format
+    text: Each .rq file contains a document header (identifier, title, prefix) and a list of requirements. Requirements form a tree via parent/child IDs.
+    children: []
+  - id: 3
+    heading: Desktop Mode
+    text: Run with "uv run src/backend/req.py". A Python backend serves the frontend via pywebview and exposes a REST API on port 9876.
+    children: []
+  - id: 4
+    heading: Browser Mode
+    text: Run with "npm run web". The app runs as a pure frontend SPA with no Python backend. File open/save use the browser File API.
+    children: []
+  - id: 5
+    heading: Getting Started
+    text: Open an existing .rq file with File > Open, create a new document with File > New, or edit this demo document directly.
+    children: []

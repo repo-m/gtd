@@ -1,0 +1,43 @@
+title: Full Example
+identifier: 00000000-0000-0000-0000-000000000002
+prefix: REQ
+description: A fixture that exercises every top-level key and Req field.
+max: 4
+next: 5
+root: 1
+defaultView: main
+views:
+  main:
+    columns:
+    - field: id
+      label: ID
+      width: 60
+    - field: text
+      label: Requirement
+      width: 400
+fields:
+- name: status
+  type: String
+  editable: true
+requirements:
+- id: 1
+  heading: Root Section
+  children:
+  - 2
+  - 3
+- id: 2
+  heading: Sub-section
+  children:
+  - 4
+- id: 3
+  text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"A text requirement with links.","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+  links:
+  - 4
+  - https://example.com
+  - label: Example
+    href: https://example.com/doc
+  status: Open
+  children: []
+- id: 4
+  text: ''
+  children: []

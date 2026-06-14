@@ -1,0 +1,13 @@
+[project]
+name = "req-rw"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "pywebview>=5.0",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/backend"]
