@@ -67,6 +67,8 @@ Two mechanisms feed `bugs.md`:
 
 Token limits mean the interactive loop has to sit idle waiting for a reset. `scheduler.sh` (repo root) covers those gaps: a launchd job fires it every 6h, independent of any Claude Code session, and it either resumes a paused `loop.sh` or — once the current task is `STATUS: DONE` (which, per step 4 above, `loop.sh` reaches and cleans up after fully on its own, never waiting on manual testing) — drafts `PROMPT.md`/`fix_plan.md` from `backlog.md`'s next entry and starts a fresh `loop.sh` run. This is exactly what lets a `backlog.md` filled with 10 items get chained straight through unattended while `test_queue.md` piles up behind it for you to work through separately. Full decision logic is in `scheduler.sh`'s own header comment; it never invents scope, never auto-resumes a `STATUS: BLOCKED` loop (that's AGENT.md §6's hard stop — needs a human), and skips the cycle cleanly if the Mac has no internet.
 
+"Is the current task finished?" is answered in exactly one place for both scripts — `prompt_state.sh`'s `prompt_has_active_task`, keyed on whether `# Task` has a real body line. That matters more than it looks: when the two scripts each carried their own regex for it, the template drifted out from under both, every cleared `PROMPT.md` read as an *active* task, and the chain silently stalled — `scheduler.sh` re-launching `loop.sh` on an empty template instead of ever reaching `backlog.md`. `test_prompt_state.sh` now runs the readers against the literal template on every startup so that can't recur.
+
 `com.249g-map.scheduler.plist` (repo root) is the source of truth for the launchd job. To (re)install after editing it:
 
 ```bash
@@ -100,6 +102,11 @@ Req.rw never needed a separate setup phase — stack and data model were already
   PROMPT.md       Your task
   fix_plan.md     Loop state
   loop.sh         The runner
+  prompt_state.sh Shared by loop.sh + scheduler.sh: the PROMPT.md placeholder template
+                  and the readers for "is there an active task?" / "what's the gate?".
+                  Single source of truth — never hand-copy the template elsewhere.
+  test_prompt_state.sh  Self-check pinning those readers to that literal template; both
+                  scripts run it at startup. `bash test_prompt_state.sh` to run it alone.
   scheduler.sh    Unattended launchd-fired orchestrator (see "Unattended mode" above)
   com.249g-map.scheduler.plist  launchd job source of truth for scheduler.sh
   README.md       Spec map — routing index

@@ -45,6 +45,17 @@ LOG_FILE="$LOG_DIR/scheduler.log"
 
 log() { printf '[%s] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$*" >> "$LOG_FILE"; }
 
+# PROMPT.md's placeholder template and the readers that recognize it live in
+# prompt_state.sh, shared with loop.sh. This used to be a regex copied into both
+# scripts, which drifted from the template and made a *cleared* PROMPT.md look
+# like an active task — so step 2 below re-ran loop.sh forever and step 3 never
+# pulled from backlog.md. test_prompt_state.sh pins the readers to the template.
+source "$PROJECT_DIR/prompt_state.sh"
+if ! bash "$PROJECT_DIR/test_prompt_state.sh" >> "$LOG_FILE" 2>&1; then
+  log "prompt_state.sh self-check FAILED — refusing to act on PROMPT.md's state. Run 'bash test_prompt_state.sh'."
+  exit 1
+fi
+
 CLAUDE_BIN="$(command -v claude || echo /Users/hm13/.local/bin/claude)"
 export PATH="/usr/local/bin:/opt/homebrew/bin:$(dirname "$CLAUDE_BIN"):$PATH"
 
@@ -77,7 +88,7 @@ fi
 # after the gate (and review gate, if due) actually passed. ---
 STATUS_LINE=$(head -n1 fix_plan.md 2>/dev/null || true)
 
-if grep -qE "^[^#<[:space:]]" PROMPT.md 2>/dev/null; then
+if prompt_has_active_task PROMPT.md; then
   if [[ "$STATUS_LINE" == "STATUS: BLOCKED"* ]]; then
     log "fix_plan.md is BLOCKED — hard stop per AGENT.md §6. Not auto-resuming; resolve by hand."
     exit 0
@@ -107,10 +118,12 @@ splits across a human conversation, non-interactively:
    redesign it.
 
 2. `loop.sh` clears PROMPT.md back to its own template itself once a task
-   fully completes (see the placeholder literal in loop.sh's
-   finish_and_queue_for_test function), so it should already look like
-   that. If it somehow doesn't (edge case, not the normal path), clear it
-   to match that same template before drafting the new one.
+   fully completes (the template literal is prompt_placeholder_template in
+   prompt_state.sh — the single source of truth for it), so it should
+   already look like that. If it somehow doesn't (edge case, not the normal
+   path), regenerate it with `bash -c 'source ./prompt_state.sh;
+   prompt_placeholder_template > PROMPT.md'` before drafting the new one --
+   never hand-copy the template.
 
 3. Branch on the entry's Type:
 
@@ -126,8 +139,8 @@ splits across a human conversation, non-interactively:
        Leave PROMPT.md as the cleared placeholder (no loop.sh run needed —
        there's no gate for prose).
        Delete the consumed entry from backlog.md.
-       git add -A && git commit for this spec file + backlog.md + any
-       README.md update.
+       git add -A -- . && git commit for this spec file + backlog.md + any
+       README.md update (`-- .` because this project sits in a monorepo).
        End your output with exactly: SCHEDULER_RESULT: SPEC_WRITTEN
 
    - Type: build
@@ -142,7 +155,8 @@ splits across a human conversation, non-interactively:
        Reset fix_plan.md per usul.md step 3: `STATUS: IN PROGRESS` on line
        1, empty checkboxes copied from the acceptance criteria.
        Delete the consumed entry from backlog.md.
-       git add -A && git commit for PROMPT.md + fix_plan.md + backlog.md.
+       git add -A -- . && git commit for PROMPT.md + fix_plan.md +
+       backlog.md (`-- .` because this project sits in a monorepo).
        End your output with exactly: SCHEDULER_RESULT: PROMPT_DRAFTED
 
 Follow every other constraint in AGENT.md and usul.md that still applies

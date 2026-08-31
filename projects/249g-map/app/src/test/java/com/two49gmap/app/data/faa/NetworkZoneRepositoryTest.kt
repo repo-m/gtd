@@ -33,7 +33,9 @@ class NetworkZoneRepositoryTest {
     fun setUp() {
         server = MockWebServer()
         server.start()
-        repository = NetworkZoneRepository(FaaServices.uasfmApi(server.url("/").toString()))
+        // FaaLog.None: the repositories log failures through an injected seam, so these
+        // tests need no android.util.Log stubbing — they assert on FetchResult instead.
+        repository = NetworkZoneRepository(FaaServices.uasfmApi(server.url("/").toString()), FaaLog.None)
     }
 
     @After

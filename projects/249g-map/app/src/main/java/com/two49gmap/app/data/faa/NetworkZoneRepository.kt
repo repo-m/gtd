@@ -1,6 +1,5 @@
 package com.two49gmap.app.data.faa
 
-import android.util.Log
 import com.two49gmap.app.domain.BoundingBox
 import com.two49gmap.app.domain.FetchResult
 import com.two49gmap.app.domain.FlightZone
@@ -9,6 +8,13 @@ import kotlin.coroutines.cancellation.CancellationException
 
 /** The layer's own `maxRecordCount`, confirmed live — so pagination is mandatory, not an edge case. */
 const val UASFM_PAGE_SIZE = 2000
+
+/**
+ * Sanity bound on the pagination loop. The Irvine bbox returns ~7300 cells (4 pages), so
+ * this is ~50x headroom; it exists only so a server that ignores `resultOffset` and keeps
+ * handing back full pages fails loudly instead of looping forever into memory.
+ */
+const val UASFM_MAX_PAGES = 200
 
 private const val TAG = "NetworkZoneRepository"
 
@@ -25,12 +31,13 @@ private const val TAG = "NetworkZoneRepository"
  */
 class NetworkZoneRepository(
     private val api: FaaUasfmApi,
+    private val log: FaaLog = FaaLog.android(TAG),
 ) : ZoneRepository {
 
     override suspend fun getZones(bbox: BoundingBox): FetchResult<List<FlightZone>> {
         val zones = mutableListOf<FlightZone>()
         var offset = 0
-        while (true) {
+        repeat(UASFM_MAX_PAGES) {
             val page = try {
                 api.query(
                     geometry = bbox.toEsriEnvelope(),
@@ -52,10 +59,15 @@ class NetworkZoneRepository(
             if (page.features.size < UASFM_PAGE_SIZE) return FetchResult.Success(zones.toList())
             offset += UASFM_PAGE_SIZE
         }
+        return fail(
+            "UASFM pagination did not terminate within $UASFM_MAX_PAGES pages " +
+                "(${zones.size} features so far) — refusing to return a possibly truncated grid.",
+            IllegalStateException("resultOffset appears to be ignored by the server"),
+        )
     }
 
     private fun fail(message: String, cause: Throwable): FetchResult.Error {
-        Log.w(TAG, message, cause)
+        log.warn(message, cause)
         return FetchResult.Error(message, cause)
     }
 }

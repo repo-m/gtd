@@ -33,15 +33,6 @@ android {
         compose = true
     }
 
-    testOptions {
-        unitTests {
-            // The data layer logs fetch failures via android.util.Log; under plain JVM
-            // unit tests that class is an unimplemented stub, so let it no-op instead of
-            // throwing.
-            isReturnDefaultValues = true
-        }
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"

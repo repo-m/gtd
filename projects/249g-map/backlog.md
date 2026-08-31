@@ -45,6 +45,12 @@ Each entry is either a **spec-writing** task (produces a `specs/NN-*.md` file, n
 **Depends on:** #5
 **Notes:** `ZoneLookupTest.kt` (Layer 1, write before the implementation per `test_concept.md`'s TDD ordering) and `ZoneQuerySheetTest.kt` (Layer 4).
 
+## 7. Revise `specs/10-flight-zone-data.md`'s pagination algorithm (BUG-002)
+
+**Type:** spec-writing
+**Job:** View flight zones (data correctness)
+**Notes:** Closes `bugs.md` BUG-002. The specced loop stops at the first page with fewer than 2000 features, so if the FAA lowers the UASFM layer's `maxRecordCount` below 2000 the very first page ends the loop and the grid is silently truncated — the safety defect the spec itself names. Tighten the algorithm: carry ArcGIS's `exceededTransferLimit` in the response shape, and make `exceededTransferLimit && features.size < pageSize` a hard error rather than a normal end-of-pagination. Spec only — the matching change to `UasfmQueryResponse`/`NetworkZoneRepository` (plus a Layer 2 test for the short-page-with-flag case) is a build task to queue behind this one.
+
 ---
 
 ## Future (not v1 — do not pull these into `PROMPT.md` until the items above are done)

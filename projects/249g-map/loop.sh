@@ -10,19 +10,30 @@ PLAN_FILE="fix_plan.md"
 TEST_QUEUE_FILE="test_queue.md"
 MAX_ITERATIONS=20
 
+# The placeholder template and every reader of PROMPT.md's state live in one
+# place, shared with scheduler.sh. test_prompt_state.sh runs the readers against
+# the literal template; a drift there used to make a *cleared* PROMPT.md read as
+# an active task, so it is checked before anything else runs.
+source ./prompt_state.sh
+if ! bash test_prompt_state.sh > /dev/null; then
+  echo "ERROR: prompt_state.sh self-check failed. Run 'bash test_prompt_state.sh' for details." >&2
+  exit 1
+fi
+
 if [[ ! -f "$PROMPT_FILE" ]]; then
   echo "ERROR: $PROMPT_FILE not found." >&2
   exit 1
 fi
 
 # Refuse to run on a blank or placeholder prompt
-if ! grep -qE "^[^#<[:space:]]" "$PROMPT_FILE"; then
+if ! prompt_has_active_task "$PROMPT_FILE"; then
   echo "ERROR: $PROMPT_FILE appears to be empty or a template. Fill in the task first." >&2
   exit 1
 fi
 
-# Extract gate command from PROMPT.md (first non-empty, non-comment line after "## Gate command")
-GATE_CMD=$(awk '/^## Gate command/{found=1; next} found && NF && !/^[#`]/{gsub(/`/,""); print; exit}' "$PROMPT_FILE")
+# Extract gate command from PROMPT.md (first real line after "## Gate command" —
+# a commented-out gate counts as no gate, not as a command to run)
+GATE_CMD=$(prompt_gate_cmd "$PROMPT_FILE")
 if [[ -z "$GATE_CMD" ]]; then
   echo "ERROR: no gate command in PROMPT.md, and no project-wide default is set yet (see SETUP.md)." >&2
   echo "Fill in PROMPT.md's Gate command, or set a default here once the test stack is chosen." >&2
@@ -31,7 +42,6 @@ fi
 
 GATE_LOG=$(mktemp)
 REVIEW_LOG=$(mktemp)
-trap 'rm -f "$GATE_LOG" "$REVIEW_LOG"' EXIT
 
 # --- Ensure an Android device/emulator is attached before every gate run.
 # The resolved test gate (SETUP.md) needs one, and nothing boots one by
@@ -46,6 +56,23 @@ EMULATOR_BIN="$ANDROID_SDK/emulator/emulator"
 EMULATOR_LOG_DIR="$(pwd)/.scheduler"
 mkdir -p "$EMULATOR_LOG_DIR"
 
+# The AVD fix_plan.md records the gate as actually verified against. Overridable
+# via LOOP_AVD for a different machine; falls back to the first AVD listed only
+# if neither is present, since "whichever sorts first" is not a device the gate
+# has ever been shown to pass on.
+PREFERRED_AVD="${LOOP_AVD:-Pixel_3a_API_34_extension_level_7_x86_64}"
+
+# Only set when *this* run booted the emulator — an emulator a human already had
+# running is theirs, and is left alone on exit.
+BOOTED_AVD=""
+
+shutdown_booted_emulator() {
+  [[ -n "$BOOTED_AVD" ]] || return 0
+  echo "Shutting down the emulator this run booted ($BOOTED_AVD)..."
+  "$ADB" emu kill >/dev/null 2>&1 || true
+  BOOTED_AVD=""
+}
+
 ensure_device() {
   [[ -x "$ADB" ]] || { echo "ERROR: adb not found at $ADB (set ANDROID_HOME)." >&2; exit 1; }
   if "$ADB" devices | grep -qE $'\tdevice$'; then
@@ -53,15 +80,23 @@ ensure_device() {
   fi
   echo "No Android device/emulator attached — booting one headlessly..."
   [[ -x "$EMULATOR_BIN" ]] || { echo "ERROR: emulator binary not found at $EMULATOR_BIN." >&2; exit 1; }
-  local avd
-  avd=$("$EMULATOR_BIN" -list-avds 2>/dev/null | head -1) || true
-  if [[ -z "$avd" ]]; then
+  local avds avd
+  avds=$("$EMULATOR_BIN" -list-avds 2>/dev/null) || true
+  if [[ -z "$avds" ]]; then
     echo "ERROR: no AVD configured (emulator -list-avds is empty) and no device attached." >&2
     echo "Per AGENT.md §6: this needs a human to create one first." >&2
     exit 1
   fi
+  if grep -qxF "$PREFERRED_AVD" <<< "$avds"; then
+    avd="$PREFERRED_AVD"
+  else
+    avd=$(head -1 <<< "$avds")
+    echo "WARNING: preferred AVD '$PREFERRED_AVD' not installed — falling back to '$avd'," >&2
+    echo "which the gate has not been verified against. Set LOOP_AVD to pick another." >&2
+  fi
   nohup "$EMULATOR_BIN" -avd "$avd" -no-window -no-audio -no-boot-anim \
     > "$EMULATOR_LOG_DIR/emulator.log" 2>&1 &
+  BOOTED_AVD="$avd"
   "$ADB" wait-for-device
   local waited=0
   until [[ "$("$ADB" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" == "1" ]]; do
@@ -74,6 +109,11 @@ ensure_device() {
   done
   echo "Emulator ($avd) booted."
 }
+
+# Set only now that shutdown_booted_emulator exists: an emulator this run booted
+# headlessly for the gate is torn down on the way out (including on a failed or
+# interrupted run), so an unattended scheduler.sh fire doesn't leave one running.
+trap 'rm -f "$GATE_LOG" "$REVIEW_LOG"; shutdown_booted_emulator' EXIT
 
 echo "Gate:             $GATE_CMD"
 echo "Max iterations:   $MAX_ITERATIONS"
@@ -88,7 +128,7 @@ finish_and_queue_for_test() {
   local commit_hash task_title specs_section acceptance_section done_when_section
 
   commit_hash=$(git rev-parse --short HEAD)
-  task_title=$(awk '/^# Task/{found=1; next} found && NF && !/^[#<]/{print; exit}' "$PROMPT_FILE")
+  task_title=$(prompt_task_title "$PROMPT_FILE")
   specs_section=$(awk '/^## Specs to load/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
   acceptance_section=$(awk '/^## Acceptance criteria/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
   done_when_section=$(awk '/^## Done when/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
@@ -113,37 +153,11 @@ finish_and_queue_for_test() {
     fi
   } >> "$TEST_QUEUE_FILE"
 
-  cat > "$PROMPT_FILE" <<'PLACEHOLDER'
-<!-- Template — filled in per usul.md §2, cleared back to this after each task closes. -->
+  prompt_placeholder_template > "$PROMPT_FILE"
 
-# Task
-
-<!-- One sentence, single responsibility. Becomes the commit message. -->
-
-## Specs to load
-
-<!-- Minimum needed — use README.md's → cross-refs to find the boundary. -->
-
-## Acceptance criteria
-
-<!-- 2–5 objectively verifiable items. -->
-
-## Done when
-
-<!-- One condition. -->
-
-## Gate command
-
-```
-<!-- Shell command that must exit 0 to close this task. -->
-```
-
-## Out of scope
-
-<!-- What the agent might be tempted to do but shouldn't. -->
-PLACEHOLDER
-
-  git add -A
+  # -- . : this repo is a monorepo; an unscoped `git add -A` stages the whole
+  # worktree regardless of cwd, sweeping other projects into this commit.
+  git add -A -- .
   git commit --quiet -m "$(printf 'Clean up after: %s\n\nCleared PROMPT.md, queued for manual test in %s.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
     "${task_title:-task}" "$TEST_QUEUE_FILE")"
 
@@ -205,10 +219,10 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
     echo "--- Gate: GREEN ---"
 
     if grep -q "^STATUS: DONE" "$PLAN_FILE" 2>/dev/null; then
-      TASK_TITLE=$(awk '/^# Task/{found=1; next} found && NF && !/^[#<]/{print; exit}' "$PROMPT_FILE")
+      TASK_TITLE=$(prompt_task_title "$PROMPT_FILE")
       echo ""
       echo "=== Gate green + STATUS: DONE — committing ==="
-      git add -A
+      git add -A -- .   # -- . : monorepo — never stage other projects
       git commit -m "$(printf '%s\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
         "${TASK_TITLE:-Complete task}")"
 
@@ -258,7 +272,6 @@ If REJECT, list the findings that must be fixed above that line. If APPROVE but 
 
       if grep -qE '^VERDICT: APPROVE[[:space:]]*$' <<< "$REVIEW_OUTPUT"; then
         echo "--- Review gate: APPROVE ---"
-        git tag -f last-reviewed HEAD
 
         if [[ -n "$(tr -d '[:space:]' <<< "$REVIEW_FINDINGS")" ]]; then
           LAST_BUG=$(grep -oE '^## BUG-[0-9]+' bugs.md 2>/dev/null | grep -oE '[0-9]+' | sort -n | tail -1 || true)
@@ -280,7 +293,12 @@ If REJECT, list the findings that must be fixed above that line. If APPROVE but 
           } >> bugs.md
         fi
 
+        # Tag *after* finish_and_queue_for_test, not before: that function makes
+        # its own cleanup commit, and tagging first left it sitting outside the
+        # reviewed range as commit #1 of the next batch — which quietly turned
+        # "review every 5 commits" into "every 4".
         finish_and_queue_for_test
+        git tag -f last-reviewed HEAD
         exit 0
       else
         if grep -qE '^VERDICT: REJECT[[:space:]]*$' <<< "$REVIEW_OUTPUT"; then

@@ -33,7 +33,9 @@ class NetworkTfrAdvisoryRepositoryTest {
     fun setUp() {
         server = MockWebServer()
         server.start()
-        repository = NetworkTfrAdvisoryRepository(FaaServices.tfrApi(server.url("/").toString()))
+        // FaaLog.None: the repositories log failures through an injected seam, so these
+        // tests need no android.util.Log stubbing — they assert on FetchResult instead.
+        repository = NetworkTfrAdvisoryRepository(FaaServices.tfrApi(server.url("/").toString()), FaaLog.None)
     }
 
     @After
