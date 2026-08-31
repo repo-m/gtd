@@ -1,7 +1,7 @@
 ---
 updated: 2026-08-30
-implemented:
-tested:
+implemented: 2026-08-30
+tested: 2026-08-30
 ---
 
 # Flight-Zone Data
