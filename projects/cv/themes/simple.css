@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: #222;
+  line-height: 1.45;
+}
+
+/* ── Header ── */
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cv-photo img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cv-identity {
+  flex: 1;
+}
+
+.cv-identity h1 {
+  font-size: 20pt;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.cv-subtitle {
+  font-size: 10.5pt;
+  color: #555;
+  margin-top: 5px;
+}
+
+.cv-contact {
+  text-align: right;
+  font-size: 9.5pt;
+  color: #444;
+  line-height: 1.8;
+}
+
+/* ── Section headings ── */
+h2 {
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #111;
+  border-bottom: 1px solid #333;
+  padding-bottom: 3px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+/* ── Job/role blocks ── */
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 1px;
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* ── Lists ── */
+ul {
+  margin: 5px 0 8px 18px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10pt;
+  margin-top: 6px;
+}
+
+td, th {
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  border-bottom: 1px solid #bbb;
+  font-size: 9.5pt;
+}
+
+tr:nth-child(even) td {
+  background: #f7f7f7;
+}

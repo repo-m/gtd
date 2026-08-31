@@ -1,0 +1,74 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+stages:
+  - test
+  - build
+
+frontend-test:
+  stage: test
+  image: node:20-slim
+  cache:
+    key:
+      files:
+        - app/package-lock.json
+    paths:
+      - app/node_modules/
+  script:
+    - npm --prefix app ci
+    - npm test
+
+backend-test:
+  stage: test
+  image: python:3.11-slim
+  variables:
+    UV_CACHE_DIR: "$CI_PROJECT_DIR/.uv-cache"
+  cache:
+    key:
+      files:
+        - app/uv.lock
+    paths:
+      - .uv-cache/
+  before_script:
+    - pip install --no-cache-dir uv
+  script:
+    - cd app
+    - uv sync --frozen
+    - uv run python -m pytest tests/
+
+e2e-test:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.60.0-noble
+  cache:
+    key:
+      files:
+        - app/package-lock.json
+    paths:
+      - app/node_modules/
+  script:
+    - npm --prefix app ci
+    - npm --prefix app run test:e2e
+  artifacts:
+    when: on_failure
+    paths:
+      - app/test-results/
+    expire_in: 7 days
+
+release-build:
+  stage: build
+  image: node:20-slim
+  cache:
+    key:
+      files:
+        - app/package-lock.json
+    paths:
+      - app/node_modules/
+  script:
+    - npm --prefix app ci
+    - npm --prefix app run release
+  artifacts:
+    paths:
+      - app/build/parcel/release/
+    expire_in: 7 days

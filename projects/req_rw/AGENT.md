@@ -42,6 +42,20 @@ The binary completion condition is the gate command in `PROMPT.md`, not self-ass
 - Do not write `STATUS: DONE` unless you are confident the gate will pass.
 - Do not modify test files to make tests pass — fix the implementation.
 
+### 4a. Review gate (every 5 commits)
+
+After each commit, `loop.sh` counts commits since the `last-reviewed` git tag (or all of `HEAD` if that tag doesn't exist yet). Below 5, nothing changes: the loop prints "Loop complete" and exits as usual.
+
+At 5 or more, `loop.sh` spawns a second, one-shot `claude -p` reviewer before letting the loop finish:
+
+- The reviewer sees only `git diff last-reviewed..HEAD` (or the diff from the repo's root commit, if `last-reviewed` doesn't exist yet) and the repo itself — never the implementer's reasoning or this conversation.
+- It uses `README.md`'s routing index to load only the specs relevant to the files the diff touches, the same context-isolation principle as this file's boot sequence (§1–2).
+- It ends its output with `VERDICT: APPROVE` or `VERDICT: REJECT` as the last line, with any findings above it.
+
+**REJECT:** `last-reviewed` does not move. The loop does not exit — the reviewer's findings are injected as the next iteration's prompt (parallel to how a red test gate injects `INJECT_FAILURES`), framed explicitly as review feedback so you know to address every finding, not re-run the gate command. The loop keeps iterating (subject to the same `MAX_ITERATIONS` cap as any other failure path) until a later review passes.
+
+**APPROVE:** `git tag -f last-reviewed HEAD` resets the count to 0. Any non-blocking nits the reviewer included get appended to `bugs.md` in the existing entry format (`## BUG-NNN — <title>` etc.); if there were no findings, `bugs.md` is left untouched. The loop then proceeds exactly as the sub-5 case: "Loop complete", exit 0.
+
 ---
 
 ## 5. Scope discipline
@@ -59,6 +73,19 @@ Stop and output a clear error message if:
 - `PROMPT.md` is ambiguous and you cannot identify a single valid interpretation.
 - A spec file listed in `PROMPT.md` does not exist in `specs/`.
 - Completing the task requires touching more than 3 spec domains simultaneously — this signals a scope problem in `PROMPT.md`.
+
+---
+
+## 8. Spec frontmatter maintenance
+
+Every spec file in `specs/` carries a YAML frontmatter block with three fields: `updated`, `implemented`, `tested`.
+
+**When you modify a spec file:**
+- Set `updated` to today's date in ISO 8601 format (e.g. `2026-06-20`).
+- Clear `implemented` and `tested` (empty string).
+
+**When you write `STATUS: DONE`:**
+- For each spec listed in PROMPT.md under **Specs to load**, set `implemented` and `tested` to today's date.
 
 ---
 

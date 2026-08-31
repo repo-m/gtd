@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Dual Runtime (Desktop / Web)
 
 Req.rw runs in two modes without any code branching in most components. The switch is resolved at runtime by a single config module, and the API layer encapsulates all mode-specific behaviour.
@@ -6,19 +12,19 @@ Req.rw runs in two modes without any code branching in most components. The swit
 
 ## Detection
 
-`src/frontend/config.ts` exports:
+`app/src/frontend/config.ts` exports:
 
 ```ts
 export const isWeb = typeof window.pywebview === 'undefined';
 ```
 
-`src/frontend/api/api.ts` imports `isWeb` and selects the correct API class at module load time. No build-time macro or bundler involvement.
+`app/src/frontend/api/api.ts` imports `isWeb` and selects the correct API class at module load time. No build-time macro or bundler involvement.
 
 ---
 
 ## API abstraction
 
-`src/frontend/api/api.ts`:
+`app/src/frontend/api/api.ts`:
 
 ```ts
 export const api = isWeb ? new WebApi() : new PythonApi();
@@ -28,7 +34,7 @@ Both classes extend `BaseApi` and expose the same interface: `init()`, `new()`, 
 
 | Method | PythonApi (desktop) | WebApi (browser) |
 |--------|--------------------|--------------------|
-| `init()` | Waits for `pywebviewready` event, calls `pywebview.api.getState()`, auto-loads file if filepath provided | Loads the bundled demo `.rq` spec file |
+| `init()` | Waits for `pywebviewready` event, calls `pywebview.api.getState()`. Loads explicit launch-arg filepath if provided; else tries last-opened filepath from prefs (session restore); else shows "No file open" panel. See `12-session-restore.md`. | Loads the bundled demo `.rq` spec file |
 | `new()` | Dispatches `fileInit` with empty state inline; replaces current window's document | Resets state to `getNewFileState()` inline |
 | `open()` | REST → OS open dialog → reads file → dispatches `fileInit` into current window | Hidden `<input type="file">` click |
 | `save()` | REST → writes file to disk | Creates `data:` URI download |
@@ -42,7 +48,7 @@ All methods return `{ ok: boolean; data?: T; error?: string }`. On failure, call
 
 Started with:
 ```sh
-uv run src/backend/req.py [--debug] [--dev] [filepath]
+uv run app/src/backend/req.py [--debug] [--dev] [filepath]
 ```
 
 The Python backend (`app.py`) serves the bundled frontend from `build/parcel/dev/` and exposes a REST API on port 9876 using Python's stdlib `http.server`. pywebview opens a native OS window pointing to `http://localhost:9876`.
@@ -84,11 +90,11 @@ Output is always to `build/parcel/<target>/`.
 
 ## Relevant files
 
-- `src/frontend/config.ts` – `isWeb` export
-- `src/frontend/api/api.ts` – API selector
-- `src/frontend/api/baseApi.ts` – shared logic
-- `src/frontend/api/pythonApi.ts` – desktop implementation
-- `src/frontend/api/webApi.ts` – browser implementation
-- `src/backend/gui.py` – pywebview window management
-- `src/backend/app.py` – stdlib HTTP server
+- `app/src/frontend/config.ts` – `isWeb` export
+- `app/src/frontend/api/api.ts` – API selector
+- `app/src/frontend/api/baseApi.ts` – shared logic
+- `app/src/frontend/api/pythonApi.ts` – desktop implementation
+- `app/src/frontend/api/webApi.ts` – browser implementation
+- `app/src/backend/gui.py` – pywebview window management
+- `app/src/backend/app.py` – stdlib HTTP server
 - `scripts/start.sh` – startup script for both modes

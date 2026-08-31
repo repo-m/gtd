@@ -1,0 +1,436 @@
+<!DOCTYPE html><html><head><title></title><meta charset="utf-8"><style>* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  color: #1a1a1a;
+  line-height: 1.45;
+}
+
+/* ── HEADER ── */
+.cv-header {
+  display: grid;
+  grid-template-columns: 90px 1fr 230px;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.cv-photo img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+.cv-identity {
+  padding-top: 6px;
+  min-width: 0;
+}
+
+.cv-identity h1 {
+  font-size: 22pt;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.cv-subtitle {
+  font-size: 11pt;
+  color: #555;
+  margin-top: 5px;
+}
+
+.cv-contact {
+  font-size: 8.5pt;
+  color: #333;
+  line-height: 1.95;
+  padding-top: 6px;
+}
+
+.cv-contact p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cv-contact svg {
+  flex-shrink: 0;
+  color: #444;
+}
+
+/* ── SECTION HEADINGS ── */
+h2 {
+  font-size: 9.5pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1a1a1a;
+  border-bottom: 0.75pt solid #1a1a1a;
+  padding-bottom: 2px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+/* Force Education onto page 2 */
+h2:nth-of-type(2) {
+  page-break-before: always;
+  margin-top: 0;
+}
+
+/* ── COMPANY NAME ── */
+h3 {
+  font-size: 11pt;
+  font-weight: 700;
+  margin-top: 16px;
+  margin-bottom: 1px;
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
+
+/* ── ROLE / DATE LINE ── */
+h3 + p {
+  font-size: 10.5pt;
+  font-style: italic;
+  color: #333;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+/* ── GENERAL PARAGRAPHS ── */
+p {
+  margin: 1px 0;
+  font-size: 11pt;
+}
+
+/* ── LISTS ── */
+ul {
+  margin: 5px 0 12px 22px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 4px;
+  font-size: 11pt;
+  line-height: 1.45;
+}
+
+/* ── EDUCATION BOLD ENTRIES ── */
+p strong {
+  font-weight: 700;
+}
+
+/* ── TABLES (certs, skills, languages) ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5pt;
+  margin-top: 3px;
+}
+
+thead {
+  display: none;
+}
+
+td {
+  padding: 2px 4px 2px 0;
+  border: none;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 42%;
+}
+/*# sourceURL=themes/match.css*/</style><style>pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #24292e;
+  background: #ffffff
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #d73a49
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #6f42c1
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #032f62
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #e36209
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}/*# sourceURL=/Users/hm13/.npm/_npx/55158e48eb5c59f7/node_modules/highlight.js/styles/github.css*/</style></head>
+	<body class="">
+		<div class="cv-header">
+  <div class="cv-photo">
+    <img src="20220211_MA.jpg" alt="">
+  </div>
+  <div class="cv-identity">
+    <h1>Mahmud Ağdaş</h1>
+    <p class="cv-subtitle">M.Sc. Electrical Engineering</p>
+  </div>
+  <div class="cv-contact">
+    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg> Kurzekampstraße 16R, 38104 Braunschweig</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg> mahmud.agdas@posteo.net</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></svg> +49 (0) 162 981 32 32</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Born June 1, 1989, in Braunschweig</p>
+    <p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg> Married, 2 children (6 and 9 years old)</p>
+  </div>
+</div>
+
+<h2 id="professional-experience">Professional Experience</h2>
+<h3 id="volkswagen-ag--electrical-systems-development-eke">Volkswagen AG – Electrical Systems Development (EKE)</h3>
+<p><em>Technical Expert | Oct 2022 – Present</em></p>
+<ul>
+<li>Software Factory SDV – Responsible for Software Build and Release.</li>
+<li>Anti-theft-alarm siren ECU – Responsible for component development, Tier-1 coordination, and validation.</li>
+<li>48 V power supply system – Conducting evaluations, supplier workshops, and technical reporting for future architectures.</li>
+<li>Electronic Main Fuse Box (eHSB) – Led ECU test management across HiL, prototype, and pre-series stages.</li>
+<li>Zonal controller eFuse validation – Managed test planning and automation concepts for eFuses.</li>
+<li>Standardized test workflows and documentation, ensuring consistent verification and traceability.</li>
+</ul>
+<h3 id="iav-gmbh--connected-software-systems--services">IAV GmbH – Connected Software Systems &amp; Services</h3>
+<p><em>Software Project Lead / Test Manager / Software Developer | Aug 2015 – Sep 2022</em></p>
+<ul>
+<li>Body Control Module (BCM MQB37w, VW Atlas PA2) – Directed software integration and delivery processes, managed ARXML interfaces, and led U.S.-specific BCM version development under tight schedules.</li>
+<li>Child Presence Detection (CPD) – Led the ASPICE Level 2 software project, overseeing full lifecycle from design to vehicle validation with minimal team resources.</li>
+<li>BCM Software Architecture (SwArchBCM) – Developed ARXML consistency checker and standardized delivery and change-management processes across 20+ stakeholders.</li>
+<li>Immobilizer System (WFS) – Built test management processes from scratch, achieving ASPICE Level 2 compliance and transforming a new team into an efficient validation unit.</li>
+<li>Parking Coordinator (PaCo) – Implemented and demonstrated model-based prototype that secured project sourcing and later evolved into a production software component.</li>
+</ul>
+<h3 id="elektrobit-automotive-gmbh--ecu-engineering-services">Elektrobit Automotive GmbH – ECU Engineering Services</h3>
+<p><em>Working Student | Apr 2013 – Sep 2014</em></p>
+<ul>
+<li>Developed a CAN residual bus simulator supporting ECU validation and test automation.</li>
+</ul>
+<h3 id="technical-university-of-braunschweig--institute-of-control-engineering">Technical University of Braunschweig – Institute of Control Engineering</h3>
+<p><em>Research Assistant (Student) | Feb 2013 – Nov 2015</em></p>
+<ul>
+<li>Designed and built a 1:5-scale model vehicle with torque vectoring for laboratory validation.</li>
+<li>Supported R&amp;D for electric drive control systems in academic projects.</li>
+</ul>
+<h2 id="education">Education</h2>
+<p><strong>M.Sc. Electrical Engineering</strong>, TU Braunschweig (Grade 1.6) | <em>2014–2015</em><br>Master's Thesis (Grade 1.0)</p>
+<ul>
+<li>Single-wheel torque vectoring control for over-actuated vehicles.</li>
+</ul>
+<p><strong>B.Sc. Electrical Engineering</strong>, TU Braunschweig (Grade 2.8) | <em>2009–2014</em><br>Bachelor's Thesis (Grade 1.3)</p>
+<ul>
+<li>Battery management system for electric vehicles.</li>
+</ul>
+<h2 id="certifications--training">Certifications &amp; Training</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Wiring Systems Specialist</td>
+<td>IHK | 2023</td>
+</tr>
+<tr>
+<td>AUTOSAR Classic in Practice</td>
+<td>Vector GmbH | 2019</td>
+</tr>
+<tr>
+<td>Provisional ASPICE Assessor</td>
+<td>Kugler Maag / VDA QMC | 2019</td>
+</tr>
+<tr>
+<td>Agile Development</td>
+<td>Kugler Maag | 2018</td>
+</tr>
+<tr>
+<td>Project Management</td>
+<td>Wuttke &amp; Team | 2018</td>
+</tr>
+<tr>
+<td>Adaptive AUTOSAR</td>
+<td>Vector GmbH | 2018</td>
+</tr>
+<tr>
+<td>ISTQB® Certified Tester</td>
+<td>IAV / Cert-IT | 2017</td>
+</tr>
+<tr>
+<td>ISO 26262 Functional Safety</td>
+<td>IAV | 2016</td>
+</tr>
+</tbody></table>
+<h2 id="technical-skills">Technical Skills</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Programming</td>
+<td>C, Python</td>
+</tr>
+<tr>
+<td>Model-Based Design</td>
+<td>MATLAB / Simulink, IBM Rhapsody, Enterprise Architect</td>
+</tr>
+<tr>
+<td>Version Control &amp; CI/CD</td>
+<td>Jenkins, GitLab, GitHub, Bitbucket</td>
+</tr>
+<tr>
+<td>Requirements Management</td>
+<td>IBM DOORS, PTC AVW</td>
+</tr>
+<tr>
+<td>Testing &amp; Validation</td>
+<td>CANoe, PikeTec TPT</td>
+</tr>
+<tr>
+<td>Project Management</td>
+<td>Jira, Confluence, MS Project, Cplace</td>
+</tr>
+<tr>
+<td>Configuration Management</td>
+<td>StarTeam, Group DMS</td>
+</tr>
+<tr>
+<td>Office &amp; Documentation</td>
+<td>LaTeX, MS Office</td>
+</tr>
+</tbody></table>
+<h2 id="language-skills">Language Skills</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>English</td>
+<td>Fluent</td>
+</tr>
+<tr>
+<td>German</td>
+<td>Native</td>
+</tr>
+<tr>
+<td>Turkish</td>
+<td>Native</td>
+</tr>
+</tbody></table>
+
+	
+
+</body></html>

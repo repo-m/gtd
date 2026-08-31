@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, 'Helvetica Neue', sans-serif;
+  font-size: 11pt;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* ── HEADER ── */
+.cv-header {
+  display: grid;
+  grid-template-columns: 51mm 1fr 57mm;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.cv-photo {
+  padding-top: 2px;
+}
+
+.cv-photo img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+
+.cv-identity {
+  padding-top: 4px;
+  padding-left: 8px;
+}
+
+.cv-identity h1 {
+  font-size: 18pt;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cv-subtitle {
+  font-size: 11pt;
+  color: #000;
+  margin-top: 6px;
+}
+
+.cv-contact {
+  font-size: 8.5pt;
+  color: #000;
+  line-height: 1.8;
+  padding-top: 2px;
+}
+
+.cv-contact p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.cv-contact svg {
+  flex-shrink: 0;
+}
+
+/* ── SECTION HEADINGS ── */
+h2 {
+  font-size: 11pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #7e7e7e;
+  border-bottom: 0.75pt solid #1a1a1a;
+  padding-bottom: 2px;
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+/* Page 2 break handled by .pg2-hdr div */
+h2:nth-of-type(2) {
+  page-break-before: auto;
+  margin-top: 0;
+}
+
+/* Running contact header at top of page 2 */
+.pg2-hdr {
+  page-break-before: always;
+  font-size: 8.5pt;
+  color: #333;
+  text-align: center;
+  border-bottom: 0.5pt solid #aaa;
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+/* ── COMPANY NAME ── */
+h3 {
+  font-size: 11pt;
+  font-weight: 700;
+  color: #000;
+  margin-top: 14px;
+  margin-bottom: 1px;
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
+
+/* ── ROLE / DATE LINE (title is regular, date em is italic) ── */
+h3 + p {
+  font-size: 11pt;
+  font-style: normal;
+  color: #000;
+  padding-left: 18px;
+  margin-bottom: 4px;
+}
+
+h3 + p em {
+  font-style: italic;
+}
+
+/* ── GENERAL PARAGRAPHS ── */
+p {
+  margin: 1px 0;
+  font-size: 11pt;
+}
+
+/* ── LISTS (bullet content is gray like the reference) ── */
+ul {
+  margin: 4px 0 10px 30px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 3px;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: #7e7e7e;
+}
+
+/* ── EDUCATION ── */
+p strong {
+  font-weight: 700;
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11pt;
+  margin-top: 2px;
+}
+
+thead {
+  display: none;
+}
+
+td {
+  padding: 2px 4px 2px 0;
+  border: none;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 38%;
+}

@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Undo / Redo
 
 Every mutation to the document is undoable. The history is stored inside the `fileSlice` Redux state using the `history-adapter` library.
@@ -50,6 +56,6 @@ After undo/redo the focused cell (`appSlice.focus`) may point to a now-deleted r
 
 ## Relevant files
 
-- `src/frontend/store/fileSlice.ts` – history adapter setup, all undoable reducers
-- `src/frontend/components/MenuBar/menuBarData/entryDataUndo.ts`
-- `src/frontend/components/MenuBar/menuBarData/entryDataRedo.ts`
+- `app/src/frontend/store/fileSlice.ts` – history adapter setup, all undoable reducers
+- `app/src/frontend/components/MenuBar/menuBarData/entryDataUndo.ts`
+- `app/src/frontend/components/MenuBar/menuBarData/entryDataRedo.ts`

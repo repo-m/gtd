@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Attributes Editor
 
 The Attributes dialog lets users edit document-level settings: title, prefix, description, custom fields, and named views.
@@ -19,13 +25,12 @@ Triggered from the MenuBar File tab → *Edit Attributes* entry (`entryDataEditA
 │  │ Sidebar      │ Content area                         │   │
 │  │ ─ General    │  (depends on selected section)        │   │
 │  │ ─ Fields     │                                      │   │
-│  │ ─ Views      │                                      │   │
 │  └──────────────┴──────────────────────────────────────┘   │
 │  [CANCEL]                                         [OK]      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-The left sidebar (`AttributesSidebar`) has three sections. Clicking a section name updates `selectedSection` state and changes what `AttributesContent` renders.
+The left sidebar (`AttributesSidebar`) has two sections. Clicking a section name updates `selectedSection` state and changes what `AttributesContent` renders.
 
 ---
 
@@ -42,7 +47,7 @@ On OK: dispatches `fileUpdateTitle`, `fileUpdatePrefix`, or `fileUpdate` as appr
 
 ### Fields (`ContentFields`)
 
-Lists all custom field definitions. Each field has:
+Lists all custom field definitions. Each field row has:
 - `name` – unique key used in requirements and view columns
 - `type` – one of the built-in types (String, RichText, Integer, Real, Boolean, Date, Enumeration, Links)
 - `editable` – whether the field can be edited inline in the table
@@ -53,15 +58,39 @@ Actions available via the menu bar:
 
 Changes are dispatched as `fileUpdate({ fields: updatedFields })`.
 
-### Views (`ContentViews`)
+#### Enumeration value editor
 
-Lists all named views. Each view is a list of columns. Actions:
-- Add view
-- Remove view
-- Add/remove/reorder columns in the selected view
-- Edit column label and width
+When a field row is selected and its `type` is `Enumeration`, an accordion panel expands directly below the row showing the list of allowed values:
 
-Changes are dispatched as `fileUpdateViews(updatedViews)`.
+```
+┌─ Name ──────────────┬─ Type ──────────┬─ Editable ─┐
+│ Status              │ Enumeration  ▾  │    ✓       │  ← selected
+├─────────────────────┴─────────────────┴────────────┤
+│  Values                                             │
+│  [Draft           ]  [✕]                           │
+│  [In Review       ]  [✕]                           │
+│  [Approved        ]  [✕]                           │
+│  [Deprecated      ]  [✕]                           │
+│  [+ Add value]                                      │
+└─────────────────────────────────────────────────────┘
+│ Category            │ String       ▾  │    ✓       │
+└─────────────────────┴─────────────────┴────────────┘
+```
+
+Each value entry is an inline text input. The `✕` button removes that value. **+ Add value** appends a new blank entry. Changing the field type away from `Enumeration` collapses and hides the panel (values are preserved in local state until OK is clicked, in case the user switches back).
+
+Non-Enumeration types render no accordion — the row stays compact.
+
+#### Default fields in new documents
+
+`getNewFileState()` seeds two fields when a new document is created:
+
+| Name | Type | Values |
+|------|------|--------|
+| Status | Enumeration | Draft, In Review, Approved, Deprecated |
+| Category | Enumeration | Functional, Non-Functional, Safety, Interface, Performance |
+
+These behave identically to user-defined fields and can be renamed, modified, or deleted.
 
 ---
 
@@ -75,12 +104,11 @@ CANCEL dismisses the modal without saving. OK calls the registered `onSubmit` ha
 
 ## Relevant files
 
-- `src/frontend/views/AttributesView/AttributesView.tsx`
-- `src/frontend/views/AttributesView/AttributesContent.tsx`
-- `src/frontend/views/AttributesView/AttributesMenu.tsx`
-- `src/frontend/views/AttributesView/AttributesSidebar.tsx`
-- `src/frontend/views/AttributesView/ContentGeneral.tsx`
-- `src/frontend/views/AttributesView/ContentFields.tsx`
-- `src/frontend/views/AttributesView/ContentViews.tsx`
-- `src/frontend/components/Modal/`
-- `src/frontend/store/fileSlice.ts` – `fileUpdateViews`, `fileUpdate`, `fileUpdateTitle`, `fileUpdatePrefix`
+- `app/src/frontend/views/AttributesView/AttributesView.tsx`
+- `app/src/frontend/views/AttributesView/AttributesContent.tsx`
+- `app/src/frontend/views/AttributesView/AttributesMenu.tsx`
+- `app/src/frontend/views/AttributesView/AttributesSidebar.tsx`
+- `app/src/frontend/views/AttributesView/ContentGeneral.tsx`
+- `app/src/frontend/views/AttributesView/ContentFields.tsx`
+- `app/src/frontend/components/Modal/`
+- `app/src/frontend/store/fileSlice.ts` – `fileUpdate`, `fileUpdateTitle`, `fileUpdatePrefix`

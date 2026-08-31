@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 2026-08-23
+tested: 2026-08-23
+---
+
 # Spec: Iconography
 
 All icons in the application are inline SVG components. Unicode characters and emoji are not used as icons anywhere in the UI.
@@ -32,7 +38,7 @@ The `sw(size)` helper in `icons.tsx` encodes this rule: `size <= 12 ? 1.75 : 1.5
 
 ## Named icons
 
-All icons live in `src/frontend/components/Icon/` and are exported from `index.ts`.
+All icons live in `app/src/frontend/components/Icon/` and are exported from `index.ts`.
 
 | Export name | Replaces | Used for |
 |---|---|---|
@@ -52,7 +58,7 @@ All icons live in `src/frontend/components/Icon/` and are exported from `index.t
 | `ListUnorderedIcon` | `UL` text label | Unordered list in MenuBar |
 | `DocumentIcon` | — | Empty state illustration (48 × 48) |
 
-Existing inline SVGs in `MenuBar.tsx` (`SunIcon`, `MoonIcon`, `MonitorIcon`) must be moved to `src/frontend/components/Icon/` to consolidate all icons in one location.
+Existing inline SVGs in `MenuBar.tsx` (`SunIcon`, `MoonIcon`, `MonitorIcon`) must be moved to `app/src/frontend/components/Icon/` to consolidate all icons in one location.
 
 ---
 
@@ -74,13 +80,13 @@ Screen-reader-only icons (purely decorative) must carry `aria-hidden="true"`.
 
 ## Relevant files
 
-- `src/frontend/components/Icon/index.ts` — all icon exports
-- `src/frontend/components/Icon/*.tsx` — one file per icon or grouped by category
-- `src/frontend/components/MenuBar.tsx` — toolbar icon consumers
-- `src/frontend/components/Field/IdField.tsx` — `HeadingIcon` (replaces `▶`)
-- `src/frontend/components/Field/LinkField.tsx` — `LinkOutIcon`, `LinkInIcon` (replaces `↗`, `↙`)
-- `src/frontend/components/SideBar/ReqTreeLine.tsx` — `ChevronDownIcon`, `ChevronRightIcon` (replaces `▾`, `▸`)
-- `src/frontend/components/StatusBar.tsx` — `ChevronLeftIcon` / `ChevronRightIcon` (replaces `‹`, `›`)
+- `app/src/frontend/components/Icon/index.ts` — all icon exports
+- `app/src/frontend/components/Icon/*.tsx` — one file per icon or grouped by category
+- `app/src/frontend/components/MenuBar.tsx` — toolbar icon consumers
+- `app/src/frontend/components/Field/IdField.tsx` — `HeadingIcon` (replaces `▶`)
+- `app/src/frontend/components/Field/LinkField.tsx` — `LinkOutIcon`, `LinkInIcon` (replaces `↗`, `↙`)
+- `app/src/frontend/components/SideBar/ReqTreeLine.tsx` — `ChevronDownIcon`, `ChevronRightIcon` (replaces `▾`, `▸`)
+- `app/src/frontend/components/StatusBar.tsx` — `ChevronLeftIcon` / `ChevronRightIcon` (replaces `‹`, `›`)
 
 ## Related specs
 

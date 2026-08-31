@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 2026-08-23
+tested: 2026-08-23
+---
+
 # Spec: Styling Architecture
 
 This spec defines how styles are applied across the application. Its rules are binding on every component.
@@ -73,13 +79,61 @@ Hover feedback must use the `:hover` CSS pseudo-class. `onMouseEnter` / `onMouse
 
 ---
 
+## Rule: Scrollbar styling
+
+The OS-default scrollbar is light-colored on macOS and breaks the dark-mode palette. A thin, theme-aware scrollbar must be applied globally via WebKit pseudo-elements in `styles.css`:
+
+```css
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+```
+
+These rules use tokens so they automatically adapt when `data-theme` changes. No hardcoded hex values are permitted in scrollbar rules.
+
+---
+
+## Button class system
+
+Content-area buttons (modals and dialogs) use a `.btn` base class with BEM-style modifiers. All values use CSS custom property tokens — no raw hex, px, or numeric font sizes.
+
+| Class | Usage |
+|---|---|
+| `.btn` | Base class for all content-area buttons. Standard size (12px, `var(--space-1) var(--space-3)` padding). |
+| `.btn--primary` | Accent-colored call-to-action button (e.g. OK, Save). Uses `--color-accent` background and `--color-text-inverse` text. |
+| `.btn--lg` | Larger footer-row buttons (e.g. CANCEL / OK / Close in modal footers). Padding `var(--space-2) var(--space-5)`, font-size `var(--font-size-md)`. |
+| `.btn--icon` | Compact icon/glyph buttons (e.g. ✕ remove, ↑↓ reorder). Reduced padding (`var(--space-1) var(--space-2)`), `font-size: var(--font-size-xs)`, `flex-shrink: 0`. |
+
+Rules:
+- `.btn` is for the content area only. MenuBar controls use `.menu-btn` (chrome context, `--color-text-chrome`).
+- `.btn--primary` and `.btn--lg` are additive modifiers — always paired with `.btn`.
+- All four classes use `transition: background-color 80ms ease` and a `:hover` rule that applies `--color-bg-hover` (`.btn--primary:hover` applies `--color-accent-hover` instead).
+- `:disabled` reduces opacity to 0.5 and sets `cursor: default`.
+
+---
+
 ## Relevant files
 
-- `src/frontend/styles.css` — global resets, `:focus-visible` rule, shared utility classes (`.is-focused`, `.is-active`)
-- `src/frontend/styles/themes.css` — all token definitions (see `50-theming.md`)
+- `app/src/frontend/styles.css` — global resets, `:focus-visible` rule, shared utility classes (`.is-focused`, `.is-active`)
+- `app/src/frontend/styles/themes.css` — all token definitions (see `50-theming.md`)
 - All component `.tsx` files — must comply with these rules
 
 ## Related specs
 
 - `50-theming.md` — defines all CSS custom property tokens
 - `52-iconography.md` — icon sizing and style rules
+- `53-design-brief.md` — the design intent these architecture rules enforce

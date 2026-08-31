@@ -1,0 +1,139 @@
+:root {
+  --accent: #1B3A5C;
+  --accent-light: #E8EEF5;
+  --text: #1a1a1a;
+  --muted: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 10.5pt;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ── Header ── */
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background: var(--accent);
+  color: white;
+  padding: 18px 22px;
+  border-radius: 4px;
+  margin-bottom: 22px;
+}
+
+.cv-photo img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.cv-identity {
+  flex: 1;
+}
+
+.cv-identity h1 {
+  font-size: 21pt;
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.cv-subtitle {
+  font-size: 11pt;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.cv-contact {
+  text-align: right;
+  font-size: 9pt;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.9;
+}
+
+/* ── Section headings ── */
+h2 {
+  font-size: 8.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 4px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+/* ── Job/role blocks ── */
+h3 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 14px;
+  margin-bottom: 1px;
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: var(--text);
+}
+
+/* ── Lists ── */
+ul {
+  margin: 6px 0 10px 20px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* ── Tables ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10pt;
+  margin-top: 6px;
+}
+
+td, th {
+  padding: 5px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 600;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) td {
+  background: #f5f8fc;
+}
+
+td:first-child {
+  font-weight: 500;
+}

@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Spec: Empty States
 
 Empty states are first-class UI. The application never renders a blank area or a broken layout when content is absent. This spec defines what every empty surface shows.
@@ -6,7 +12,9 @@ Empty states are first-class UI. The application never renders a blank area or a
 
 ## No file open
 
-**Condition:** `appSlice.filename` is null (application launch before any file is loaded).
+**Condition:** `appSlice.filename` is null.
+
+This is a **fallback state**, not the normal startup experience. On desktop, `PythonApi.init()` attempts to reopen the last-used file automatically (→ `12-session-restore.md`); this panel only appears on first launch, when the last file cannot be found, or when the user explicitly closes/creates a new document. On web, the demo file is always loaded so this panel never appears via `init()`.
 
 The main content area (where `TableView` normally renders) shows a full-panel centered empty state. The Sidebar is hidden in this state regardless of `appSlice.sidebar`.
 
@@ -83,15 +91,15 @@ No requirements
 
 ## Relevant files
 
-- `src/frontend/views/TableView/TableView.tsx` — empty document state (empty `<tbody>` row) and no-file state
-- `src/frontend/components/SideBar/ReqTree.tsx` — empty sidebar state
-- `src/frontend/components/MenuBar.tsx` — "No matches" note in search row
-- `src/frontend/components/Icon/` — `DocumentIcon` for no-file state
-- `src/frontend/store/appSlice.ts` — `filename` selector, `appSetPath` action
-- `src/frontend/store/fileSliceMemoSelector.ts` — `selectFileReqList`
-- `src/frontend/api/WebApi.ts` — must dispatch `appSetPath` in `init()`, `new()`, `open()`
-- `src/frontend/api/PythonApi.ts` — must dispatch `appSetPath` in `new()` and `_load()`
-- `src/frontend/Content.tsx` — gates sidebar and `View` on `filename !== null`
+- `app/src/frontend/views/TableView/TableView.tsx` — empty document state (empty `<tbody>` row) and no-file state
+- `app/src/frontend/components/SideBar/ReqTree.tsx` — empty sidebar state
+- `app/src/frontend/components/MenuBar.tsx` — "No matches" note in search row
+- `app/src/frontend/components/Icon/` — `DocumentIcon` for no-file state
+- `app/src/frontend/store/appSlice.ts` — `filename` selector, `appSetPath` action
+- `app/src/frontend/store/fileSliceMemoSelector.ts` — `selectFileReqList`
+- `app/src/frontend/api/WebApi.ts` — must dispatch `appSetPath` in `init()`, `new()`, `open()`
+- `app/src/frontend/api/PythonApi.ts` — must dispatch `appSetPath` in `new()` and `_load()`
+- `app/src/frontend/Content.tsx` — gates sidebar and `View` on `filename !== null`
 
 ## Related specs
 

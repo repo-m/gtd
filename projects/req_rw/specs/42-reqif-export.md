@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: ReqIF Import / Export
 
 Req.rw reads and writes **ReqIF 1.2** (Requirements Interchange Format), an XML-based standard for exchanging requirements between tools.
@@ -43,13 +49,13 @@ ReqIF XML string
           └─ fileInit dispatch → Redux state
 ```
 
-`parseReqIF` and `reqIfToState` live in `src/frontend/transform/ReqIF/`.
+`parseReqIF` and `reqIfToState` live in `app/src/frontend/transform/ReqIF/`.
 
 ---
 
 ## Transform pipeline (export)
 
-### `mapToParams` (`src/frontend/transform/mapping.ts`)
+### `mapToParams` (`app/src/frontend/transform/mapping.ts`)
 
 Converts the Redux file state to a parameter object for the `ReqIF` builder:
 
@@ -59,7 +65,7 @@ Converts the Redux file state to a parameter object for the `ReqIF` builder:
 - **Specifications**: hierarchy built from the `children` tree.
 - **SpecRelations**: built from `req.links`.
 
-### ReqIF builder (`src/frontend/transform/ReqIF/`)
+### ReqIF builder (`app/src/frontend/transform/ReqIF/`)
 
 | File | Builds |
 |------|--------|
@@ -83,8 +89,8 @@ The ReqIF 1.2 specification is included in the repo at `spec/2016-07-01_spec_Req
 
 ## Relevant files
 
-- `src/frontend/views/RegIfView.tsx`
-- `src/frontend/transform/mapping.ts`
-- `src/frontend/transform/ReqIF/` (all files)
-- `src/frontend/transform/XMLDocument.ts`, `XMLElement.ts`
+- `app/src/frontend/views/RegIfView.tsx`
+- `app/src/frontend/transform/mapping.ts`
+- `app/src/frontend/transform/ReqIF/` (all files)
+- `app/src/frontend/transform/XMLDocument.ts`, `XMLElement.ts`
 - `spec/2016-07-01_spec_ReqIF_1.2.pdf`

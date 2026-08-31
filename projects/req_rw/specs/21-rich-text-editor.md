@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Rich Text Editor
 
 The `text` field of each requirement uses a Lexical-based rich text editor. It supports formatted text and lists, and integrates with the app's edit mode, undo/redo system, and search highlighting.
@@ -6,7 +12,7 @@ The `text` field of each requirement uses a Lexical-based rich text editor. It s
 
 ## Component: `RichTextEditor`
 
-`src/frontend/components/RichTextEditor/RichTextEditor.tsx`
+`app/src/frontend/components/RichTextEditor/RichTextEditor.tsx`
 
 Wraps `LexicalComposer` with a fixed set of plugins:
 
@@ -57,10 +63,10 @@ The `MenuBar` Home tab has formatting buttons wired to Lexical commands via `Glo
 
 ## Relevant files
 
-- `src/frontend/components/RichTextEditor/RichTextEditor.tsx`
-- `src/frontend/components/RichTextEditor/editorConfig.ts`
-- `src/frontend/components/RichTextEditor/plugins/EditModeEffectPlugin.tsx`
-- `src/frontend/components/RichTextEditor/plugins/ValueEffectPlugin.tsx`
-- `src/frontend/components/RichTextEditor/plugins/UpdateEffectPlugin.tsx`
-- `src/frontend/components/RichTextEditor/plugins/SearchMarkPlugin/`
-- `src/frontend/components/GlobalEditorContext/` – global editor ref context
+- `app/src/frontend/components/RichTextEditor/RichTextEditor.tsx`
+- `app/src/frontend/components/RichTextEditor/editorConfig.ts`
+- `app/src/frontend/components/RichTextEditor/plugins/EditModeEffectPlugin.tsx`
+- `app/src/frontend/components/RichTextEditor/plugins/ValueEffectPlugin.tsx`
+- `app/src/frontend/components/RichTextEditor/plugins/UpdateEffectPlugin.tsx`
+- `app/src/frontend/components/RichTextEditor/plugins/SearchMarkPlugin/`
+- `app/src/frontend/components/GlobalEditorContext/` – global editor ref context

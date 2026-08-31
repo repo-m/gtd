@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # System Architecture
 
 ## What it is
@@ -10,16 +16,16 @@
 
 | Mode | Entry point | File I/O | Native dialogs |
 |------|------------|----------|----------------|
-| **Desktop** | `uv run src/backend/req.py` | Python REST API | pywebview OS dialogs |
+| **Desktop** | `uv run app/src/backend/req.py` | Python REST API | pywebview OS dialogs |
 | **Web** | `npm run web` (Parcel dev server) | Browser File API | HTML `<input type="file">` |
 
-The frontend detects which mode it is in at runtime. `src/frontend/config.ts` exports:
+The frontend detects which mode it is in at runtime. `app/src/frontend/config.ts` exports:
 
 ```ts
 export const isWeb = typeof window.pywebview === 'undefined';
 ```
 
-`src/frontend/api/api.ts` imports `isWeb` and selects `PythonApi` or `WebApi` accordingly. No build-time macro or bundler involvement.
+`app/src/frontend/api/api.ts` imports `isWeb` and selects `PythonApi` or `WebApi` accordingly. No build-time macro or bundler involvement.
 
 ---
 
@@ -32,6 +38,7 @@ export const isWeb = typeof window.pywebview === 'undefined';
 │  req.py  ──► gui.py (pywebview window)                 │
 │          ──► app.py (stdlib HTTP server :9876)         │
 │               ├─ /window/<id>/api/file        GET/POST  │
+│               ├─ /window/<id>/api/prefs       GET/POST  │
 │               ├─ /window/<id>/api/dialog/...  GET       │
 │               ├─ /window/<id>/api/window      POST      │
 │               └─ /<path>  (static frontend build)       │
@@ -56,7 +63,7 @@ export const isWeb = typeof window.pywebview === 'undefined';
 
 ---
 
-## Backend (`src/backend/`)
+## Backend (`app/src/backend/`)
 
 | File | Responsibility |
 |------|---------------|
@@ -69,7 +76,7 @@ export const isWeb = typeof window.pywebview === 'undefined';
 
 ---
 
-## Frontend (`src/frontend/`)
+## Frontend (`app/src/frontend/`)
 
 ### API layer (`api/`)
 
@@ -85,8 +92,8 @@ Every API method returns `{ ok: boolean; data?: T; error?: string }`. Callers ch
 
 | Slice | Key state |
 |-------|-----------|
-| `appSlice` | `editMode`, `contentMode` (TABLE/RAW/FILE/REGIF), `sidebar`, `viewName`, `views` (session-only column-width overrides keyed by view name), `focus` (selected cell), `clipboard` metadata, `lastError: string \| null` |
-| `fileSlice` | Document data wrapped in a 100-step undo/redo history adapter. Contains `requirements` (keyed by integer id), `fields`, `views`, `types`, `title`, `prefix`, `description`, `identifier`, `max`, `next` (always `max+1`), `defaultView` |
+| `appSlice` | `editMode`, `contentMode` (TABLE/RAW/FILE/REGIF), `sidebar`, `viewName`, `views` (named view configs loaded from prefs on file open, persisted back on change), `focus` (selected cell), `clipboard` metadata, `lastError: string \| null` |
+| `fileSlice` | Document data wrapped in a 100-step undo/redo history adapter. Contains `requirements` (keyed by integer id), `fields`, `types`, `title`, `prefix`, `description`, `identifier`, `max`, `next` (always `max+1`) |
 | `searchSlice` | `isVisible`, `value`, `results[]`, `resultMap: { [reqId]: { [field]: CharRange[] } }` |
 
 `searchMiddleware` in `searchMiddleware.ts` reacts to `searchSetValue` / `searchStart` by walking `state.file.requirements` and computing text matches in the data layer. Results are dispatched as `searchSetResults`. No DOM access.
@@ -117,7 +124,7 @@ interface Req {
 interface FileState {
   root: number;         // id of the top-level sentinel req
   requirements: { [id: number]: Req };
-  // ... fields, views, types, title, prefix, description, identifier, max, next, defaultView
+  // ... fields, types, title, prefix, description, identifier, max, next
 }
 ```
 

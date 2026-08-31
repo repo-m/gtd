@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Search
 
 Search lets the user find text across all visible requirement fields. Matches are highlighted inline; the user can navigate between them.
@@ -65,9 +71,9 @@ All `<mark class="search-mark">` elements are hidden by default and revealed onl
 
 ## Relevant files
 
-- `src/frontend/store/searchSlice.ts`
-- `src/frontend/store/searchMiddleware.ts`
-- `src/frontend/components/RichTextEditor/plugins/SearchMarkPlugin/`
-- `src/frontend/components/MarkableText.tsx`
-- `src/frontend/components/MenuBar/menuBarData/entryDataSearch.ts`
-- `src/frontend/View.tsx` – applies `search-visible` CSS class
+- `app/src/frontend/store/searchSlice.ts`
+- `app/src/frontend/store/searchMiddleware.ts`
+- `app/src/frontend/components/RichTextEditor/plugins/SearchMarkPlugin/`
+- `app/src/frontend/components/MarkableText.tsx`
+- `app/src/frontend/components/MenuBar/menuBarData/entryDataSearch.ts`
+- `app/src/frontend/View.tsx` – applies `search-visible` CSS class

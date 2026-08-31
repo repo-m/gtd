@@ -1,3 +1,9 @@
+---
+updated: 2026-08-23
+implemented: 
+tested: 
+---
+
 # Feature: Requirement Tree
 
 Requirements are stored as a flat dictionary and linked into a tree using an ordered `children` array on each requirement.
@@ -109,6 +115,6 @@ When `merge = true` (cut from the same document), ids are preserved and the sub-
 
 ## Relevant files
 
-- `src/frontend/store/fileSlice.ts` – all reducers and tree helpers
-- `src/frontend/store/fileSliceMemoSelector.ts` – `selectFileReqList`
-- `src/frontend/constants/field_constants.ts` – `FIELD_LIST_INTERNAL`, `FIELD_LIST_DEFAULT`
+- `app/src/frontend/store/fileSlice.ts` – all reducers and tree helpers
+- `app/src/frontend/store/fileSliceMemoSelector.ts` – `selectFileReqList`
+- `app/src/frontend/constants/field_constants.ts` – `FIELD_LIST_INTERNAL`, `FIELD_LIST_DEFAULT`
