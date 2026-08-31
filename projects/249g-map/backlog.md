@@ -6,50 +6,43 @@ Each entry is either a **spec-writing** task (produces a `specs/NN-*.md` file, n
 
 ---
 
-## 1. Implement the flight-zone data layer
-
-**Type:** build
-**Job:** View flight zones
-**Depends on:** `specs/10-flight-zone-data.md` (written)
-**Notes:** `NetworkZoneRepository` (UASFM → `FlightZone`, paginated per the spec) and `NetworkTfrAdvisoryRepository` (TFR text feed → `TfrAdvisory`, `state == "CA"` filter) — two independent repositories, not a merge. `test_concept.md` Layer 1 (`BboxTest.kt`) and Layer 2 (`NetworkZoneRepositoryTest.kt`, plus a TFR-advisory-repository equivalent) coverage. No UI in this task.
-
-## 2. Write `specs/20-map-view.md`
+## 1. Write `specs/20-map-view.md`
 
 **Type:** spec-writing
 **Job:** View flight zones
 **Notes:** `MapScreen`, `ZoneOverlay` rendering (UASFM grid cells only — no TFR polygons, see `00-system-architecture.md`'s TFR data-precision note), `TfrAdvisoryList` (plain-text panel, not map geometry), legend/coloring. First task that pulls in the Google Maps Compose dependency named in `00-system-architecture.md`.
 
-## 3. Implement the map view
+## 2. Implement the map view
 
 **Type:** build
 **Job:** View flight zones
-**Depends on:** #2 (`specs/20-map-view.md` must exist)
-**Notes:** Renders `FlightZone` list from the repository (#1) on the map, and `TfrAdvisory` list in `TfrAdvisoryList`. Layer 4 instrumented test: `ZoneOverlayTest.kt`.
+**Depends on:** #1 (`specs/20-map-view.md` must exist)
+**Notes:** Renders `FlightZone` list from `NetworkZoneRepository` on the map, and `TfrAdvisory` list in `TfrAdvisoryList`. Layer 4 instrumented test: `ZoneOverlayTest.kt`.
 
-## 4. Write `specs/21-location.md`
+## 3. Write `specs/21-location.md`
 
 **Type:** spec-writing
 **Job:** Locate myself on the map
 **Notes:** Location permission flow, `DeviceLocationProvider`, recenter button, bbox-center fallback on denial.
 
-## 5. Implement location
+## 4. Implement location
 
 **Type:** build
 **Job:** Locate myself on the map
-**Depends on:** #4
+**Depends on:** #3
 **Notes:** Layer 4 instrumented test: `LocationPermissionFlowTest.kt` (grant + deny paths, per `test_concept.md`).
 
-## 6. Write `specs/22-zone-query.md`
+## 5. Write `specs/22-zone-query.md`
 
 **Type:** spec-writing
 **Job:** Check a specific location
 **Notes:** Tap-to-query interaction, `ZoneLookup` (UASFM grid only — never TFRs, per `00-system-architecture.md`), `ZoneQuerySheet` result display.
 
-## 7. Implement tap-to-query
+## 6. Implement tap-to-query
 
 **Type:** build
 **Job:** Check a specific location
-**Depends on:** #6
+**Depends on:** #5
 **Notes:** `ZoneLookupTest.kt` (Layer 1, write before the implementation per `test_concept.md`'s TDD ordering) and `ZoneQuerySheetTest.kt` (Layer 4).
 
 ---
