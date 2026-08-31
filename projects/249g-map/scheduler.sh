@@ -5,21 +5,27 @@
 # waits between token resets.
 #
 # On each fire, in this order:
-#   1. loop.sh already running?              -> nothing to do.
-#   2. No internet reachable?                -> log + exit, state untouched,
-#                                                next fire (or you) just retries.
-#   3. fix_plan.md STATUS: BLOCKED           -> hard stop (AGENT.md §6).
-#                                                Never auto-resume. Log + exit.
-#   4. fix_plan.md STATUS: IN PROGRESS       -> resume: bash loop.sh.
-#   5. fix_plan.md STATUS: DONE (or missing) -> take backlog.md's first entry:
+#   1. loop.sh already running?               -> nothing to do.
+#   2. No internet reachable?                 -> log + exit, state untouched,
+#                                                 next fire (or you) just retries.
+#   3. PROMPT.md still has a real task in it (not the cleared placeholder)?
+#      This, not fix_plan.md's STATUS line, is the authoritative "still in
+#      flight" signal -- see the inline comment at this check for why.
+#        - fix_plan.md says STATUS: BLOCKED -> hard stop (AGENT.md §6).
+#          Never auto-resume. Log + exit.
+#        - otherwise                        -> resume: bash loop.sh.
+#   4. PROMPT.md is the cleared placeholder (loop.sh's own
+#      finish_and_queue_for_test did that, which only runs once the gate --
+#      and review gate, if due -- actually passed) -> take backlog.md's
+#      first entry:
 #        - Type: spec-writing -> a `claude -p` pass writes the spec file
 #          directly and commits it. No loop.sh run (nothing to gate).
 #        - Type: build        -> a `claude -p` pass drafts PROMPT.md and
 #          resets fix_plan.md (usul.md steps 2-3), commits those doc changes,
 #          then bash loop.sh runs the actual build.
 #      Either way the consumed entry is deleted from backlog.md.
-#   6. backlog.md has no entries left         -> log + exit, needs a human to
-#                                                queue more work.
+#   5. backlog.md has no entries left          -> log + exit, needs a human to
+#                                                 queue more work.
 #
 # Documented in usul.md's "Unattended mode" section — see that file for the
 # install/uninstall commands and the plist source of truth
@@ -59,22 +65,30 @@ if ! curl -fsS --max-time 8 -o /dev/null https://api.anthropic.com 2>/dev/null; 
   exit 0
 fi
 
-# --- 2/3. Paused loop? ---
+# --- 2. Is there an active task? PROMPT.md still holding real content (not
+# the cleared placeholder) is the authoritative signal -- NOT fix_plan.md's
+# STATUS line. STATUS: DONE only means the agent believes it's finished;
+# it can be sitting there DONE with nothing committed if loop.sh's own gate
+# check never got to run or finish (died mid-run for an environmental
+# reason -- session/token limit, no device, disk full -- exactly the kind
+# of thing this scheduler exists to retry). The only thing that reliably
+# means "fully finished, safe to move on" is PROMPT.md being cleared, which
+# only happens inside loop.sh's finish_and_queue_for_test, which only runs
+# after the gate (and review gate, if due) actually passed. ---
 STATUS_LINE=$(head -n1 fix_plan.md 2>/dev/null || true)
 
-if [[ "$STATUS_LINE" == "STATUS: BLOCKED"* ]]; then
-  log "fix_plan.md is BLOCKED — hard stop per AGENT.md §6. Not auto-resuming; resolve by hand."
-  exit 0
-fi
-
-if [[ "$STATUS_LINE" == "STATUS: IN PROGRESS"* ]]; then
-  log "Resuming paused loop (STATUS: IN PROGRESS)."
+if grep -qE "^[^#<[:space:]]" PROMPT.md 2>/dev/null; then
+  if [[ "$STATUS_LINE" == "STATUS: BLOCKED"* ]]; then
+    log "fix_plan.md is BLOCKED — hard stop per AGENT.md §6. Not auto-resuming; resolve by hand."
+    exit 0
+  fi
+  log "Active task still in PROMPT.md (fix_plan.md: ${STATUS_LINE:-no STATUS line}) — resuming: bash loop.sh."
   nohup bash loop.sh >> "$LOG_DIR/loop_output.log" 2>&1 &
   log "loop.sh restarted, pid $!."
   exit 0
 fi
 
-# --- 4/5. Last task done (or no task ever started) — pull next backlog item ---
+# --- 3. PROMPT.md is the cleared placeholder — pull the next backlog item ---
 if ! grep -qE '^## [0-9]+\.' backlog.md 2>/dev/null; then
   log "backlog.md has no queued entries — needs a human to add more work. Exiting."
   exit 0
