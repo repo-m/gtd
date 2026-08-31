@@ -7,6 +7,7 @@ cd "$(dirname "$0")"
 
 PROMPT_FILE="PROMPT.md"
 PLAN_FILE="fix_plan.md"
+TEST_QUEUE_FILE="test_queue.md"
 MAX_ITERATIONS=20
 
 if [[ ! -f "$PROMPT_FILE" ]]; then
@@ -35,6 +36,54 @@ trap 'rm -f "$GATE_LOG" "$REVIEW_LOG"' EXIT
 echo "Gate:             $GATE_CMD"
 echo "Max iterations:   $MAX_ITERATIONS"
 echo "----------------------------------------"
+
+# Runs once the task is fully done (gate green, STATUS: DONE, and reviewed —
+# not gated on manual testing, which is decoupled: see usul.md). Clears
+# PROMPT.md back to the placeholder so the next task (human- or
+# scheduler.sh-driven) can start immediately, and queues this one in
+# test_queue.md for whenever manual testing happens.
+finish_and_queue_for_test() {
+  local commit_hash task_title specs_section acceptance_section done_when_section
+
+  commit_hash=$(git rev-parse --short HEAD)
+  task_title=$(awk '/^# Task/{found=1; next} found && NF && !/^[#<]/{print; exit}' "$PROMPT_FILE")
+  specs_section=$(awk '/^## Specs to load/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
+  acceptance_section=$(awk '/^## Acceptance criteria/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
+  done_when_section=$(awk '/^## Done when/{f=1;next} /^## /{f=0} f' "$PROMPT_FILE")
+
+  {
+    echo ""
+    echo "## ${task_title:-Untitled task} — commit \`$commit_hash\`"
+    echo ""
+    if [[ -n "$specs_section" ]]; then
+      echo "**Specs touched:**"
+      echo "$specs_section"
+      echo ""
+    fi
+    echo "**Verify manually:**"
+    if [[ -n "$acceptance_section" ]]; then
+      echo "$acceptance_section"
+    fi
+    if [[ -n "$done_when_section" ]]; then
+      echo ""
+      echo "**Done when:**"
+      echo "$done_when_section"
+    fi
+  } >> "$TEST_QUEUE_FILE"
+
+  cat > "$PROMPT_FILE" <<'PLACEHOLDER'
+# Task
+
+<!-- No active task. Populated by a human (usul.md steps 1-3) or scheduler.sh from backlog.md. -->
+PLACEHOLDER
+
+  git add -A
+  git commit --quiet -m "$(printf 'Clean up after: %s\n\nCleared PROMPT.md, queued for manual test in %s.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
+    "${task_title:-task}" "$TEST_QUEUE_FILE")"
+
+  echo ""
+  echo "=== Loop complete — queued for manual test in $TEST_QUEUE_FILE ==="
+}
 
 INJECT_FAILURES=""
 INJECT_REVIEW=""
@@ -104,7 +153,7 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
       fi
 
       if [[ "$REVIEW_COUNT" -lt 5 ]]; then
-        echo "=== Loop complete ==="
+        finish_and_queue_for_test
         exit 0
       fi
 
@@ -162,7 +211,7 @@ If REJECT, list the findings that must be fixed above that line. If APPROVE but 
           } >> bugs.md
         fi
 
-        echo "=== Loop complete ==="
+        finish_and_queue_for_test
         exit 0
       else
         if grep -qE '^VERDICT: REJECT[[:space:]]*$' <<< "$REVIEW_OUTPUT"; then

@@ -82,7 +82,8 @@ fi
 
 log "Last task DONE (or no task yet). Preparing next backlog item via claude -p."
 
-PREP_PROMPT=$(cat <<'EOF'
+PREP_PROMPT_FILE="$LOG_DIR/prep_prompt.txt"
+cat > "$PREP_PROMPT_FILE" <<'EOF'
 You are running unattended, fired by a scheduler — there is no human in this
 session to discuss the task with. Do the file-prep steps usul.md normally
 splits across a human conversation, non-interactively:
@@ -91,9 +92,9 @@ splits across a human conversation, non-interactively:
    invent scope beyond what that entry says; transcribe/expand it, don't
    redesign it.
 
-2. If PROMPT.md is not already a cleared placeholder, clear it first
-   (usul.md step 6's cleanup, skipped because no human was present to run
-   it after the last loop finished):
+2. `loop.sh` clears PROMPT.md back to the placeholder itself once a task
+   fully completes, so it should already look like this. If it somehow
+   doesn't (edge case, not the normal path), clear it first:
 
    # Task
 
@@ -135,10 +136,9 @@ splits across a human conversation, non-interactively:
 Follow every other constraint in AGENT.md and usul.md that still applies
 (don't rename/restructure specs/, don't touch app/ code in this pass).
 EOF
-)
 
 PREP_LOG="$LOG_DIR/prep_$(date '+%Y%m%d_%H%M%S').log"
-"$CLAUDE_BIN" --dangerously-skip-permissions --model opus -p "$PREP_PROMPT" > "$PREP_LOG" 2>&1
+"$CLAUDE_BIN" --dangerously-skip-permissions --model opus -p "$(cat "$PREP_PROMPT_FILE")" > "$PREP_LOG" 2>&1
 
 if grep -q "SCHEDULER_RESULT: PROMPT_DRAFTED" "$PREP_LOG"; then
   log "PROMPT.md drafted for next build task — starting loop.sh."

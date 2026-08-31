@@ -8,7 +8,7 @@ Carried over from Req.rw's `usul.md` — that loop worked with no major complain
 
 ## Per-task workflow
 
-**(new)** Split into two modes: an interactive discussion session (you + agent, conversational), then an unattended loop run (agent alone, via `loop.sh`). Steps 1–3 happen in the discussion session; 4–6 happen after you say go.
+**(new)** Split into two modes: an interactive discussion session (you + agent, conversational), then an unattended loop run (agent alone, via `loop.sh`). Steps 1–3 happen in the discussion session — or are skipped entirely when `scheduler.sh` drafts a task from `backlog.md` unattended. Step 4 happens after you say go and now finishes fully on its own, no manual step required to close it out. Step 5 (manual testing) is deliberately **decoupled** from all of that — see below.
 
 ### 1. Discuss the next step (interactive session)
 
@@ -38,16 +38,19 @@ Output of the discussion, produced by the agent, not filled in by hand:
 bash loop.sh
 ```
 
-Runs until gate green + `STATUS: DONE`, or `STATUS: BLOCKED` halts it. Review gate (every 5 commits) is automatic — nothing to do, check `git tag -l last-reviewed` and `bugs.md` occasionally.
+Runs until gate green + `STATUS: DONE` (and, if a review is due, the review gate approves), or `STATUS: BLOCKED` halts it for a human. Review gate (every 5 commits) is automatic — nothing to do, check `git tag -l last-reviewed` and `bugs.md` occasionally.
 
-### 5. You test the app
+On success, `loop.sh` **finishes the task completely on its own**: it clears `PROMPT.md` back to the placeholder and appends the task (title, specs touched, acceptance criteria) to `test_queue.md`, in its own commit. Nothing is left for a human to do before the next task can start — that's what makes batching work. Fill `backlog.md` with several items, then either re-run `bash loop.sh` yourself for each one in turn, or let `scheduler.sh` chain straight through all of them unattended (see "Unattended mode" below). Manual testing never blocks this — see step 5.
 
-- [ ] Run the app on a real device or emulator — the automated gate can't fully substitute for this on mobile. Whatever the gate checks, this step is where "does it actually work" gets answered.
+### 5. Manual testing — decoupled, whenever you have time
 
-### 6. Agent cleans up
+Not tied to any single task finishing, and not a gate on anything. Work through `test_queue.md` at your own pace, in whatever order:
 
-- [ ] Clear `PROMPT.md` back to the template
-- [ ] Leave `fix_plan.md` as `STATUS: DONE` (it becomes a log)
+- [ ] Run the app on a real device or emulator and check the entry's acceptance criteria — the automated gate can't fully substitute for this on mobile.
+- [ ] Works as expected → delete the entry from `test_queue.md`.
+- [ ] Doesn't → file it in `bugs.md`, delete the entry from `test_queue.md`, and if it needs a dedicated fix, queue one in `backlog.md`.
+
+Then go fill more of `backlog.md`, or spend a cycle on `bugs.md` per the cycle below.
 
 ---
 
@@ -62,7 +65,7 @@ Two mechanisms feed `bugs.md`:
 
 ## Unattended mode: `scheduler.sh` + launchd
 
-Token limits mean the interactive loop has to sit idle waiting for a reset. `scheduler.sh` (repo root) covers those gaps: a launchd job fires it every 6h, independent of any Claude Code session, and it either resumes a paused `loop.sh` or — once the current task is `STATUS: DONE` — drafts `PROMPT.md`/`fix_plan.md` from `backlog.md`'s next entry and starts a fresh `loop.sh` run. Full decision logic is in `scheduler.sh`'s own header comment; it never invents scope, never auto-resumes a `STATUS: BLOCKED` loop (that's AGENT.md §6's hard stop — needs a human), and skips the cycle cleanly if the Mac has no internet.
+Token limits mean the interactive loop has to sit idle waiting for a reset. `scheduler.sh` (repo root) covers those gaps: a launchd job fires it every 6h, independent of any Claude Code session, and it either resumes a paused `loop.sh` or — once the current task is `STATUS: DONE` (which, per step 4 above, `loop.sh` reaches and cleans up after fully on its own, never waiting on manual testing) — drafts `PROMPT.md`/`fix_plan.md` from `backlog.md`'s next entry and starts a fresh `loop.sh` run. This is exactly what lets a `backlog.md` filled with 10 items get chained straight through unattended while `test_queue.md` piles up behind it for you to work through separately. Full decision logic is in `scheduler.sh`'s own header comment; it never invents scope, never auto-resumes a `STATUS: BLOCKED` loop (that's AGENT.md §6's hard stop — needs a human), and skips the cycle cleanly if the Mac has no internet.
 
 `com.249g-map.scheduler.plist` (repo root) is the source of truth for the launchd job. To (re)install after editing it:
 
@@ -103,6 +106,7 @@ Req.rw never needed a separate setup phase — stack and data model were already
   usul.md         This file
   test_concept.md Test strategy
   backlog.md      Queued multi-iteration efforts
+  test_queue.md   Finished tasks awaiting manual test — decoupled, see step 5 above
   bugs.md         Review-gate findings log
   specs/          Numbered spec files
   app/            Source + tests (once SETUP.md is resolved)

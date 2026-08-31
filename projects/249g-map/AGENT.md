@@ -58,7 +58,7 @@ Stop with a clear error if:
 - Don't modify spec files unless `PROMPT.md` explicitly says to.
 - Don't rename/restructure `specs/`.
 - Don't delete or truncate `fix_plan.md`.
-- Don't clear/overwrite `PROMPT.md` — human's responsibility.
+- Don't clear/overwrite `PROMPT.md` yourself, ever — including once you've written `STATUS: DONE`. Clearing it back to the placeholder is automatic (`loop.sh` does it once the gate is green and, if due, the review gate has approved), not something you do mid-task.
 - Don't modify test files to force a green gate.
 
 ## 8. Spec frontmatter maintenance
