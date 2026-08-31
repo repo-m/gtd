@@ -92,13 +92,11 @@ splits across a human conversation, non-interactively:
    invent scope beyond what that entry says; transcribe/expand it, don't
    redesign it.
 
-2. `loop.sh` clears PROMPT.md back to the placeholder itself once a task
-   fully completes, so it should already look like this. If it somehow
-   doesn't (edge case, not the normal path), clear it first:
-
-   # Task
-
-   <!-- No active task. Populated by scheduler.sh from backlog.md, or by a human per usul.md steps 1-3. -->
+2. `loop.sh` clears PROMPT.md back to its own template itself once a task
+   fully completes (see the placeholder literal in loop.sh's
+   finish_and_queue_for_test function), so it should already look like
+   that. If it somehow doesn't (edge case, not the normal path), clear it
+   to match that same template before drafting the new one.
 
 3. Branch on the entry's Type:
 

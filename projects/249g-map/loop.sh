@@ -114,9 +114,33 @@ finish_and_queue_for_test() {
   } >> "$TEST_QUEUE_FILE"
 
   cat > "$PROMPT_FILE" <<'PLACEHOLDER'
+<!-- Template — filled in per usul.md §2, cleared back to this after each task closes. -->
+
 # Task
 
-<!-- No active task. Populated by a human (usul.md steps 1-3) or scheduler.sh from backlog.md. -->
+<!-- One sentence, single responsibility. Becomes the commit message. -->
+
+## Specs to load
+
+<!-- Minimum needed — use README.md's → cross-refs to find the boundary. -->
+
+## Acceptance criteria
+
+<!-- 2–5 objectively verifiable items. -->
+
+## Done when
+
+<!-- One condition. -->
+
+## Gate command
+
+```
+<!-- Shell command that must exit 0 to close this task. -->
+```
+
+## Out of scope
+
+<!-- What the agent might be tempted to do but shouldn't. -->
 PLACEHOLDER
 
   git add -A
