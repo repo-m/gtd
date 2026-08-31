@@ -33,6 +33,48 @@ GATE_LOG=$(mktemp)
 REVIEW_LOG=$(mktemp)
 trap 'rm -f "$GATE_LOG" "$REVIEW_LOG"' EXIT
 
+# --- Ensure an Android device/emulator is attached before every gate run.
+# The resolved test gate (SETUP.md) needs one, and nothing boots one by
+# default — without this, an unattended scheduler.sh run would just fail
+# the gate every iteration with a purely environmental error, burning
+# iterations on something no amount of code-fixing can address. Per
+# AGENT.md §6, if there's truly no AVD configured, say so and stop rather
+# than guess at pass/fail.
+ANDROID_SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/Library/Android/sdk}}"
+ADB="$ANDROID_SDK/platform-tools/adb"
+EMULATOR_BIN="$ANDROID_SDK/emulator/emulator"
+EMULATOR_LOG_DIR="$(pwd)/.scheduler"
+mkdir -p "$EMULATOR_LOG_DIR"
+
+ensure_device() {
+  [[ -x "$ADB" ]] || { echo "ERROR: adb not found at $ADB (set ANDROID_HOME)." >&2; exit 1; }
+  if "$ADB" devices | grep -qE $'\tdevice$'; then
+    return 0
+  fi
+  echo "No Android device/emulator attached — booting one headlessly..."
+  [[ -x "$EMULATOR_BIN" ]] || { echo "ERROR: emulator binary not found at $EMULATOR_BIN." >&2; exit 1; }
+  local avd
+  avd=$("$EMULATOR_BIN" -list-avds 2>/dev/null | head -1) || true
+  if [[ -z "$avd" ]]; then
+    echo "ERROR: no AVD configured (emulator -list-avds is empty) and no device attached." >&2
+    echo "Per AGENT.md §6: this needs a human to create one first." >&2
+    exit 1
+  fi
+  nohup "$EMULATOR_BIN" -avd "$avd" -no-window -no-audio -no-boot-anim \
+    > "$EMULATOR_LOG_DIR/emulator.log" 2>&1 &
+  "$ADB" wait-for-device
+  local waited=0
+  until [[ "$("$ADB" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" == "1" ]]; do
+    sleep 5
+    waited=$((waited + 5))
+    if (( waited >= 180 )); then
+      echo "ERROR: emulator ($avd) did not finish booting within 180s. See $EMULATOR_LOG_DIR/emulator.log." >&2
+      exit 1
+    fi
+  done
+  echo "Emulator ($avd) booted."
+}
+
 echo "Gate:             $GATE_CMD"
 echo "Max iterations:   $MAX_ITERATIONS"
 echo "----------------------------------------"
@@ -128,6 +170,9 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
 
   # --- Gate ---
   echo ""
+  if [[ "$GATE_CMD" == *"connectedAndroidTest"* || "$GATE_CMD" == *"androidTest"* ]]; then
+    ensure_device
+  fi
   echo "--- Running gate: $GATE_CMD ---"
   INJECT_FAILURES=""
   INJECT_REVIEW=""
