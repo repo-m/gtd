@@ -94,10 +94,13 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
       git commit -m "$(printf '%s\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
         "${TASK_TITLE:-Complete task}")"
 
+      # Scoped to this project directory (-- .): this repo is a monorepo, and
+      # an unscoped rev-list/diff would count/review every commit touching
+      # any project, not just this one.
       if git rev-parse -q --verify refs/tags/last-reviewed >/dev/null; then
-        REVIEW_COUNT=$(git rev-list --count last-reviewed..HEAD)
+        REVIEW_COUNT=$(git rev-list --count last-reviewed..HEAD -- .)
       else
-        REVIEW_COUNT=$(git rev-list --count HEAD)
+        REVIEW_COUNT=$(git rev-list --count HEAD -- .)
       fi
 
       if [[ "$REVIEW_COUNT" -lt 5 ]]; then
@@ -112,12 +115,14 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
       if git rev-parse -q --verify refs/tags/last-reviewed >/dev/null; then
         REVIEW_RANGE="last-reviewed..HEAD"
       else
-        REVIEW_RANGE="$(git rev-list --max-parents=0 HEAD)..HEAD"
+        # Fallback: the first commit that touched this project directory,
+        # not the monorepo's root commit (this repo holds multiple projects).
+        REVIEW_RANGE="$(git log --reverse --format=%H -- . | head -1)..HEAD"
       fi
 
-      REVIEW_PROMPT=$(printf 'You are reviewing a batch of commits in this repository before it is allowed to land.
+      REVIEW_PROMPT=$(printf 'You are reviewing a batch of commits to the 249g-map project (a subdirectory of a larger monorepo) before it is allowed to land.
 
-Run `git diff %s` yourself to see the accumulated diff. You have not been given the implementer'"'"'s reasoning or conversation — only the repo as it stands. Do not assume anything beyond that.
+Run `git diff %s -- .` yourself, from this project'"'"'s directory, to see the accumulated diff scoped to this project only — do not diff the whole repository. You have not been given the implementer'"'"'s reasoning or conversation — only the repo as it stands. Do not assume anything beyond that.
 
 Use README.md'"'"'s routing index to load only the specs relevant to the files touched by that diff, the same context-isolation principle AGENT.md uses for its normal boot sequence. Check the diff against those specs for correctness and scope compliance.
 
