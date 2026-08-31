@@ -35,7 +35,7 @@ Per `test_concept.md`'s job here mirroring Req.rw: whatever is manual-only stays
 | Module | Spec |
 |---|---|
 | `ZoneLookup.query(point)` — point-in-cell (UASFM grid only; TFRs are text-only advisories, never part of this lookup — see `00-system-architecture.md`'s TFR data-precision note) | `22-zone-query` *(planned)* |
-| Bbox constant (Irvine + 100km) coordinate math | `00-system-architecture` |
+| Bbox constant (Irvine + 100km) coordinate math | `10-flight-zone-data` |
 | DTO → `FlightZone` mapping (UASFM), DTO → `TfrAdvisory` mapping (TFR text feed) | `10-flight-zone-data` |
 
 **Tooling:** JUnit 5 (or JUnit4, whichever the Gradle template defaults to), Kotlin — `app/src/test/`

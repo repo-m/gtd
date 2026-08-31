@@ -65,4 +65,4 @@ Stop with a clear error if:
 
 Every spec file carries `updated` / `implemented` / `tested` (ISO 8601) frontmatter.
 - On spec edit: set `updated` to today, clear `implemented`/`tested`.
-- On `STATUS: DONE`: set `implemented`/`tested` to today for every spec listed in `PROMPT.md`.
+- On `STATUS: DONE`: set `implemented`/`tested` to today for every spec listed in `PROMPT.md` that this task actually fully implements. A spec loaded only as a load-on-demand reference (e.g. `00-system-architecture.md` for a task that implements one narrow piece of it) stays blank — stamping it would claim the whole spec is built when it isn't, misleading the next task that boots from it. Note the reasoning in `fix_plan.md`'s `## Out-of-scope findings` when a listed spec is deliberately left unstamped, so a reviewer doesn't flag it as a missed step.

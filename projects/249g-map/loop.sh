@@ -158,7 +158,7 @@ finish_and_queue_for_test() {
   # -- . : this repo is a monorepo; an unscoped `git add -A` stages the whole
   # worktree regardless of cwd, sweeping other projects into this commit.
   git add -A -- .
-  git commit --quiet -m "$(printf 'Clean up after: %s\n\nCleared PROMPT.md, queued for manual test in %s.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
+  git commit --quiet -m "$(printf 'Clean up after: %s\n\nCleared PROMPT.md, queued for manual test in %s.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>' \
     "${task_title:-task}" "$TEST_QUEUE_FILE")"
 
   echo ""
@@ -223,7 +223,7 @@ for i in $(seq 1 "$MAX_ITERATIONS"); do
       echo ""
       echo "=== Gate green + STATUS: DONE — committing ==="
       git add -A -- .   # -- . : monorepo — never stage other projects
-      git commit -m "$(printf '%s\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>' \
+      git commit -m "$(printf '%s\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>' \
         "${TASK_TITLE:-Complete task}")"
 
       # Scoped to this project directory (-- .): this repo is a monorepo, and

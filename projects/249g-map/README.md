@@ -24,18 +24,18 @@ tested:
 
 - **[`specs/00-system-architecture.md`](specs/00-system-architecture.md)** — App module layout, map rendering choice, networking/DI stack, data flow.
   - *Covers:* `ui`/`domain`/`data` package boundaries, Google Maps Compose decision, Retrofit stack, location provider, build toolchain.
-  - *Does not cover:* Exact FAA endpoint URLs/params (→ `10-flight-zone-data`, not yet written), UI layout details (→ `20-map-view`, not yet written).
+  - *Does not cover:* Exact FAA endpoint URLs/params (→ `10-flight-zone-data`, written), UI layout details (→ `20-map-view`, not yet written).
 
 ## Jobs
 
-Spec files below are **not yet written** — this is the planned structure per `SETUP.md`'s "populate the Job list" step. Each will get its own numbered spec file under `specs/` before its first `PROMPT.md` task, per the numbering convention `00` foundational / `10s` data / `20s` map & UI.
+Spec files below are marked `(planned)` where they don't exist yet — this is the structure per `SETUP.md`'s "populate the Job list" step. Each gets its own numbered spec file under `specs/` before its first `PROMPT.md` task, per the numbering convention `00` foundational / `10s` data / `20s` map & UI.
 
 ### Job: View flight zones
 
 User goal: see allowed/restricted drone airspace near the current location on a map.
 
 - **[`specs/10-flight-zone-data.md`](specs/10-flight-zone-data.md)** — FAA UASFM (LAANC grid) + TFR text-feed endpoints, bbox query, pagination, DTO → `FlightZone`/`TfrAdvisory` mapping. TFRs are a text-only advisory list in v1, not map geometry — see the spec's own note and `00-system-architecture.md`'s TFR data-precision note for why.
-- `specs/20-map-view.md` *(planned)* — `MapScreen`, `ZoneOverlay` rendering (grid cells + TFR polygons), legend/coloring.
+- `specs/20-map-view.md` *(planned)* — `MapScreen`, `ZoneOverlay` rendering (UASFM grid cells only — no TFR polygons, per the TFR data-precision note above), `TfrAdvisoryList` (plain-text panel), legend/coloring.
 
 ### Job: Locate myself on the map
 

@@ -32,7 +32,7 @@ Mark `**RESOLVED** (date: how)` in the title line when closed; never delete entr
 
 ---
 
-## BUG-003 — Review gate nits (last-reviewed..HEAD)
+## BUG-003 — Review gate nits (last-reviewed..HEAD) — **RESOLVED (2026-08-30: fixed nits 1-6 directly — README.md's stale TFR-polygon/not-yet-written text, test_concept.md's bbox-spec pointer, loop.sh's commit attribution, AGENT.md §8's stamping rule, prompt_state.sh's backtick stripping)**
 
 **Files:** see diff range `last-reviewed..HEAD`
 

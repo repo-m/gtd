@@ -79,6 +79,6 @@ prompt_gate_cmd() {
   awk '
     /^## Gate command/           { in_gate = 1; next }
     in_gate && /^## /            { exit }
-    in_gate && NF && !/^[#`<]/   { gsub(/`/, ""); print; exit }
+    in_gate && NF && !/^[#`<]/   { gsub(/^`+|`+$/, ""); print; exit }
   ' "$1"
 }
