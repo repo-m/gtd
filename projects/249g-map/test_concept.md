@@ -34,10 +34,9 @@ Per `test_concept.md`'s job here mirroring Req.rw: whatever is manual-only stays
 
 | Module | Spec |
 |---|---|
-| `ZoneLookup.query(point)` — point-in-cell (UASFM grid) and point-in-polygon (TFR) | `22-zone-query` *(planned)* |
-| TFR-overrides-grid merge rule | `22-zone-query` *(planned)* |
+| `ZoneLookup.query(point)` — point-in-cell (UASFM grid only; TFRs are text-only advisories, never part of this lookup — see `00-system-architecture.md`'s TFR data-precision note) | `22-zone-query` *(planned)* |
 | Bbox constant (Irvine + 100km) coordinate math | `00-system-architecture` |
-| DTO → `FlightZone` / `ZoneInfo` mapping | `10-flight-zone-data` *(planned)* |
+| DTO → `FlightZone` mapping (UASFM), DTO → `TfrAdvisory` mapping (TFR text feed) | `10-flight-zone-data` |
 
 **Tooling:** JUnit 5 (or JUnit4, whichever the Gradle template defaults to), Kotlin — `app/src/test/`
 
@@ -49,9 +48,10 @@ Per `test_concept.md`'s job here mirroring Req.rw: whatever is manual-only stays
 
 | Scenario | Spec |
 |---|---|
-| `getZones(bbox)` merges UASFM + TFR responses into one `FlightZone` list | `10-flight-zone-data` *(planned)* |
-| Malformed/partial FAA response → repository returns error state, does not crash or fabricate a zone | `10-flight-zone-data` *(planned)* |
-| One feed fails, the other succeeds → surfaced as partial-data state, never silently dropped | `10-flight-zone-data` *(planned)* |
+| `getZones(bbox)` paginates `FaaUasfmApi` (2000-record page cap, confirmed live) into one `FlightZone` list | `10-flight-zone-data` |
+| Malformed/partial FAA response → repository returns error state, does not crash or fabricate a zone | `10-flight-zone-data` |
+| `getAdvisories(bbox)` filters `FaaTfrApi`'s full list down to the bbox's state(s) | `10-flight-zone-data` |
+| `FaaUasfmApi` and `FaaTfrApi` are independent — one failing never blocks or corrupts the other's result | `10-flight-zone-data` |
 
 **Tooling:** JUnit + `MockWebServer` (OkHttp) or a fake `FaaUasfmApi`/`FaaTfrApi` implementation — `app/src/test/`
 

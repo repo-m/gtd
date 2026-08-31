@@ -34,7 +34,7 @@ Spec files below are **not yet written** — this is the planned structure per `
 
 User goal: see allowed/restricted drone airspace near the current location on a map.
 
-- `specs/10-flight-zone-data.md` *(planned)* — FAA UAS Facility Map + TFR/NOTAM fetch, bbox query, DTO → `FlightZone` mapping.
+- **[`specs/10-flight-zone-data.md`](specs/10-flight-zone-data.md)** — FAA UASFM (LAANC grid) + TFR text-feed endpoints, bbox query, pagination, DTO → `FlightZone`/`TfrAdvisory` mapping. TFRs are a text-only advisory list in v1, not map geometry — see the spec's own note and `00-system-architecture.md`'s TFR data-precision note for why.
 - `specs/20-map-view.md` *(planned)* — `MapScreen`, `ZoneOverlay` rendering (grid cells + TFR polygons), legend/coloring.
 
 ### Job: Locate myself on the map

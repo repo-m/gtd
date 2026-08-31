@@ -6,56 +6,50 @@ Each entry is either a **spec-writing** task (produces a `specs/NN-*.md` file, n
 
 ---
 
-## 1. Write `specs/10-flight-zone-data.md`
-
-**Type:** spec-writing
-**Job:** View flight zones
-**Notes:** Define the FAA UASFM (LAANC altitude grid) + TFR/NOTAM fetch, the Irvine+100km bbox query, and the DTO → `FlightZone`/`ZoneInfo` mapping, per `SETUP.md`'s resolved data-source decision and `00-system-architecture.md`'s repository boundary. Cover the malformed/partial-response and one-feed-fails behavior already anticipated in `test_concept.md` Layer 2.
-
-## 2. Implement the flight-zone data layer
+## 1. Implement the flight-zone data layer
 
 **Type:** build
 **Job:** View flight zones
-**Depends on:** #1 (`specs/10-flight-zone-data.md` must exist)
-**Notes:** `NetworkZoneRepository`, DTOs, and the UASFM+TFR merge, with `test_concept.md` Layer 1 (`BboxTest.kt`) and Layer 2 (`NetworkZoneRepositoryTest.kt`) coverage. No UI in this task.
+**Depends on:** `specs/10-flight-zone-data.md` (written)
+**Notes:** `NetworkZoneRepository` (UASFM → `FlightZone`, paginated per the spec) and `NetworkTfrAdvisoryRepository` (TFR text feed → `TfrAdvisory`, `state == "CA"` filter) — two independent repositories, not a merge. `test_concept.md` Layer 1 (`BboxTest.kt`) and Layer 2 (`NetworkZoneRepositoryTest.kt`, plus a TFR-advisory-repository equivalent) coverage. No UI in this task.
 
-## 3. Write `specs/20-map-view.md`
+## 2. Write `specs/20-map-view.md`
 
 **Type:** spec-writing
 **Job:** View flight zones
-**Notes:** `MapScreen`, `ZoneOverlay` rendering (grid cells + TFR polygons), legend/coloring. First task that pulls in the Google Maps Compose dependency named in `00-system-architecture.md`.
+**Notes:** `MapScreen`, `ZoneOverlay` rendering (UASFM grid cells only — no TFR polygons, see `00-system-architecture.md`'s TFR data-precision note), `TfrAdvisoryList` (plain-text panel, not map geometry), legend/coloring. First task that pulls in the Google Maps Compose dependency named in `00-system-architecture.md`.
 
-## 4. Implement the map view
+## 3. Implement the map view
 
 **Type:** build
 **Job:** View flight zones
-**Depends on:** #3 (`specs/20-map-view.md` must exist)
-**Notes:** Renders `FlightZone` list from the repository (#2) on the map. Layer 4 instrumented test: `ZoneOverlayTest.kt`.
+**Depends on:** #2 (`specs/20-map-view.md` must exist)
+**Notes:** Renders `FlightZone` list from the repository (#1) on the map, and `TfrAdvisory` list in `TfrAdvisoryList`. Layer 4 instrumented test: `ZoneOverlayTest.kt`.
 
-## 5. Write `specs/21-location.md`
+## 4. Write `specs/21-location.md`
 
 **Type:** spec-writing
 **Job:** Locate myself on the map
 **Notes:** Location permission flow, `DeviceLocationProvider`, recenter button, bbox-center fallback on denial.
 
-## 6. Implement location
+## 5. Implement location
 
 **Type:** build
 **Job:** Locate myself on the map
-**Depends on:** #5
+**Depends on:** #4
 **Notes:** Layer 4 instrumented test: `LocationPermissionFlowTest.kt` (grant + deny paths, per `test_concept.md`).
 
-## 7. Write `specs/22-zone-query.md`
+## 6. Write `specs/22-zone-query.md`
 
 **Type:** spec-writing
 **Job:** Check a specific location
-**Notes:** Tap-to-query interaction, `ZoneLookup`, `ZoneQuerySheet` result display.
+**Notes:** Tap-to-query interaction, `ZoneLookup` (UASFM grid only — never TFRs, per `00-system-architecture.md`), `ZoneQuerySheet` result display.
 
-## 8. Implement tap-to-query
+## 7. Implement tap-to-query
 
 **Type:** build
 **Job:** Check a specific location
-**Depends on:** #7
+**Depends on:** #6
 **Notes:** `ZoneLookupTest.kt` (Layer 1, write before the implementation per `test_concept.md`'s TDD ordering) and `ZoneQuerySheetTest.kt` (Layer 4).
 
 ---
@@ -65,3 +59,4 @@ Each entry is either a **spec-writing** task (produces a `specs/NN-*.md` file, n
 - Offline caching of zone data (architecture already leaves room for this — see `00-system-architecture.md`'s repository boundary note).
 - EU regulatory data source and coverage.
 - User-adjustable area (beyond the fixed Irvine+100km bbox).
+- Precise TFR geometry, if a source is ever found/paid for that actually covers hazard-type TFRs (not just national-defense + stadium) — see `00-system-architecture.md`'s TFR data-precision note.
