@@ -1,0 +1,36 @@
+# Oct26Us
+
+- 09 FR
+  - **BLOCKED — kept free.** TBD (flight arrival) - Wife arrives, rest / welcome dinner - $0
+- 10 SA
+  - Daytime - Shopping (South Coast Plaza / Fashion Island - exact pick still open) - TBD
+  - 19:00 - The Wiltern - ~$54 (+fees, for two)
+- 11 SU
+  - Daytime - Huntington Library, Art Museum & Botanical Gardens - ~$58 (weekend, two adults)
+- 12 MO
+  - Morning - Hollywood sign shoot (spot still open: Lake Hollywood Park / Griffith Observatory) - $0
+  - Afternoon - Jimmy Kimmel Live! taping - TBD (usually free admission)
+- 13 TU
+  - Daytime - Drone shoot: Corona del Mar coastal cliffs/tide pools - Free
+  - Evening (~19:00) - NHL: Calgary Flames vs. Anaheim Ducks, Anaheim - ~$86
+- 14 WE
+  - Evening - **Anniversary (official marriage date)** - halal dinner, cost TBD
+  - rest of day kept free
+- 15 TH
+  - Daytime - Santa Monica photo shoot (optional add-ons not decided: Getty Villa / SRF Lake Shrine) - $0 (+$25 parking if Getty Villa added)
+- 16 FR
+  - Daytime - The Broad + MOCA (downtown LA, adjacent to each other) - ~$70-80 for two
+  - Evening (~19:30) - NBA: Denver Nuggets vs. Los Angeles Lakers, LA - ~$64
+- 17 SA
+  - 10:00 - Santa Barbara walking tour (+ optional stops: Courthouse, Old Mission, Arlington/Granada Theatre, Natural History Museum) - $40 (two adults)
+- 18 SU
+  - Evening - **Anniversary (first meeting / wedding day)** - halal dinner, cost TBD
+  - rest of day kept free
+- 19 MO
+  - OPEN
+- 20 TU
+  - **BLOCKED — kept free.**
+- 21 WE
+  - **BLOCKED — kept free.** TBD (flight time) - Wife departs, travel day - $0
+- 22 TH
+  - **BLOCKED — kept free.** TBD (flight time) - I depart, solo day - $0
